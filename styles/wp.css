@@ -515,9 +515,21 @@ body, input, select, textarea, button, .ui-btn {
 		width: 20%;
 	}
 }
+.def .ui-content > .hub .same-height {
+    display: table;
+}
+.def .ui-content > .hub .same-height [class*="cm"] {
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+}
 .def .ui-content > .hub .card img {
-	margin-bottom: -4px;
 	width: 100%;
+	vertical-align: middle;
+}
+.def .ui-content > .hub .card .bg-img {
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .def .ui-content > .hub .card .description {
 	display: block;
