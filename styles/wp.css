@@ -534,6 +534,7 @@ body, input, select, textarea, button, .ui-btn {
 	float: left;
 	display: table-cell;
 	vertical-align: middle;
+	background-color: #EEE;
 }
 @media screen and (min-width: 768px) {
 	.def .ui-content > .hub .same-height [class*="cm"] {
