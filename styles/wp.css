@@ -410,8 +410,11 @@ body, input, select, textarea, button, .ui-btn {
 }
 
 /* Borrwing From WP */
-.def .ui-content > .hub .container {
+.def .ui-content > .hub .generic,
+.def .ui-content > .hub .top-product {
+	margin: 0 auto;
 	padding: 5px;
+	max-width: 1170px;
 }
 .def .ui-content > .hub .container > .section {
 	margin-bottom: 5px;
@@ -465,6 +468,7 @@ body, input, select, textarea, button, .ui-btn {
 	border-bottom: 0;
 }
 .def .ui-content > .hub .ui-view {
+	margin-bottom: 20px;
 	padding: 5px;
 }
 
@@ -486,7 +490,7 @@ body, input, select, textarea, button, .ui-btn {
 }
 .def .ui-content > .hub .generic {
 	margin: 0 auto;
-	max-width: 768px;
+	/* max-width: 768px; */
 }
 @media screen and (min-width: 480px) {
 	.def .ui-content > .hub .top-product .order {
@@ -498,11 +502,19 @@ body, input, select, textarea, button, .ui-btn {
 	}
 }
 @media screen and (min-width: 768px) {
-	.def .ui-content > .hub .row .cm5 {
+	.def .ui-content > .hub .row .cm4,
+	.def .ui-content > .hub .row .cm5,
+	.def .ui-content > .hub .row .cm6 {
 		float: left;
+	}
+	.def .ui-content > .hub .row .cm4 {
+		width: 40%;
 	}
 	.def .ui-content > .hub .row .cm5 {
 		width: 50%;
+	}
+	.def .ui-content > .hub .row .cm6 {
+		width: 60%;
 	}
 	.def .ui-content > .hub .top-product .order .item {
 		float: left;
