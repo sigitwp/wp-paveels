@@ -528,12 +528,17 @@ body, input, select, textarea, button, .ui-btn {
 	}
 }
 .def .ui-content > .hub .same-height {
-    display: table;
+	display: table;
 }
 .def .ui-content > .hub .same-height [class*="cm"] {
-    float: none;
-    display: table-cell;
-    vertical-align: middle;
+	float: left;
+	display: table-cell;
+	vertical-align: middle;
+}
+@media screen and (min-width: 768px) {
+	.def .ui-content > .hub .same-height [class*="cm"] {
+		float: none;
+	}
 }
 .def .ui-content > .hub .card img {
 	width: 100%;
