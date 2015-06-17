@@ -497,6 +497,9 @@ body, input, select, textarea, button, .ui-btn {
 .def > .ui-header .desktop .main .bar > a:last-child {
 	padding-right: 0;
 }
+.def > .ui-header .desktop .main .bar > a img {
+	opacity: 0.7;
+}
 .def > .ui-header .desktop .ui-filterable {
 	margin: 0;
 }
@@ -533,13 +536,13 @@ body, input, select, textarea, button, .ui-btn {
 	display: block;
 	color: inherit;
 	text-decoration: none;
-	line-height: 40px;
+	line-height: 34px;
 	font-size: 16px;
+	color: #68340B;
 }
 .def > .ui-header .desktop .nav ul li {
 	position: relative;
 	float: left;
-	color: #000000;
 }
 
 /* Paveels Colours */
@@ -557,19 +560,18 @@ body, input, select, textarea, button, .ui-btn {
 	position: absolute;
 	top: 100%;
 	left: 0;
-	border-right: 1px solid #A5A5A5;
-	border-left: 1px solid #A5A5A5;
 }
 .def > .ui-header .desktop .nav ul ul li {
 	float: none;
 	width: 200px;
-	border-bottom: 1px solid #A5A5A5;
+	border: 1px solid #68340B;
+	border-top-width: 0;
 }
 .def > .ui-header .desktop .nav ul ul li:hover {
-	background-color: #AAAAAA;
+	background-color: #FDCC3D;
 }
 .def > .ui-header .desktop .nav ul ul a {
-	line-height: 120%;
+	line-height: 14px;
 	padding: 10px 15px;
 }
 .def > .ui-header .desktop .nav ul ul ul {
