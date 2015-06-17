@@ -201,13 +201,6 @@ body, input, select, textarea, button, .ui-btn {
 /* Contek - http://pixelarity.com/items/demos/threshold/red */
 
 /* Paveels Def */
-.def > .ui-header {
-	background-color: #FDD356;
-	overflow-y: hidden;
-}
-.def > .ui-header .ui-body-inherit {
-	background-color: #EDB302;
-}
 .def .ui-content.ui-content-fluid {
 	margin: 0;
 	padding: 0;
@@ -310,7 +303,7 @@ body, input, select, textarea, button, .ui-btn {
 	border-bottom: 0;
 }
 .def .ui-content > .hub .ui-view {
-	margin-bottom: 10px;
+	margin: 10px 0;
 	padding: 5px;
 }
 .def .ui-content > .hub .order > .item:last-child .ui-view {
@@ -429,4 +422,160 @@ body, input, select, textarea, button, .ui-btn {
 	margin: 0;
 	color: #FFFFFF;
 	font-size: 18px;
+}
+.def .ui-content > .hub .social {
+	text-align: center;
+}
+.def .ui-content > .hub .social ul {
+	margin: 0 auto;
+	padding: 0;
+	display: inline-block;
+	list-style: none;
+}
+.def .ui-content > .hub .social ul li {
+	float: left;
+}
+.def .ui-content > .hub .social ul li a {
+	display: block;
+	padding: 10px;
+}
+.def .ui-content > .hub .social ul li a img {
+	vertical-align: middle;
+}
+
+
+.def > .ui-header {
+	background-color: #FDD356;
+	overflow: hidden;
+}
+.def > .ui-header .ui-body-inherit {
+	background-color: #EDB302;
+}
+.def > .ui-header .desktop {
+	display: none;
+}
+.def > .ui-header .desktop .menu {
+	float: left;
+	background-color: #FDCC3D;
+	border-bottom: 4px solid #EDAF02;
+	width: 100%;
+}
+.def > .ui-header .desktop .main {
+	overflow: hidden;
+	margin: 0 auto;
+	max-width: 1170px;
+}
+.def > .ui-header .desktop .menu .nav {
+	overflow: visible;
+}
+@media (min-width: 60em) {
+	.def > .ui-header {
+		background-color: #F9F9F9;
+		overflow: visible;
+	}
+	.def > .ui-header > form,
+	.def > .ui-header > a {
+		display: none;
+	}
+	.def > .ui-header .desktop {
+		display: block;
+	}
+}
+.def > .ui-header .desktop .main .bar {
+	margin: 18px 10px;
+	float: right;
+}
+.def > .ui-header .desktop .main .bar > form,
+.def > .ui-header .desktop .main .bar > a {
+	float: right;
+	padding: 6px 14px;
+}
+.def > .ui-header .desktop .main .bar > form {
+	padding: 0;
+	padding-left: 6px;
+}
+.def > .ui-header .desktop .main .bar > a:last-child {
+	padding-right: 0;
+}
+.def > .ui-header .desktop .ui-filterable {
+	margin: 0;
+}
+.def > .ui-header .desktop .ui-filterable .ui-input-search input {
+	min-width: 180px;
+}
+.def > .ui-header .desktop .logo {
+	padding: 10px;
+	display: block;
+	float: left;
+}
+.def > .ui-header .desktop .logo img {
+	vertical-align: middle;
+	width: auto;
+	max-width: 180px;
+	max-height: 64px;
+}
+/* Get From http://codepen.io/philhoyt/pen/ujHzd */
+.def > .ui-header .desktop .nav {
+	display: block;
+}
+.def > .ui-header .desktop .nav ul {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	float: left;
+	list-style: none;
+}
+.def > .ui-header .desktop .nav > ul {
+	margin: 0 10px;
+}
+.def > .ui-header .desktop .nav ul a {
+	padding: 2px 15px 0;
+	display: block;
+	color: inherit;
+	text-decoration: none;
+	line-height: 40px;
+	font-size: 16px;
+}
+.def > .ui-header .desktop .nav ul li {
+	position: relative;
+	float: left;
+	color: #000000;
+}
+
+/* Paveels Colours */
+/* C0D531, DCE372, FDD356, BC833A, AB6B28, 74401A */
+
+.def > .ui-header .desktop .nav ul li.active,
+.def > .ui-header .desktop .nav ul li:hover {
+	background-color: #EDAF02;
+}
+.def > .ui-header .desktop .nav ul ul {
+	padding: 0;
+	display: none;
+	background-color: #EEEEEE;
+	border-top: 4px solid #EDAF02;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	border-right: 1px solid #A5A5A5;
+	border-left: 1px solid #A5A5A5;
+}
+.def > .ui-header .desktop .nav ul ul li {
+	float: none;
+	width: 200px;
+	border-bottom: 1px solid #A5A5A5;
+}
+.def > .ui-header .desktop .nav ul ul li:hover {
+	background-color: #AAAAAA;
+}
+.def > .ui-header .desktop .nav ul ul a {
+	line-height: 120%;
+	padding: 10px 15px;
+}
+.def > .ui-header .desktop .nav ul ul ul {
+	top: 0;
+	left: 100%
+}
+.def > .ui-header .desktop .nav ul li:hover > ul {
+	display: block
 }
