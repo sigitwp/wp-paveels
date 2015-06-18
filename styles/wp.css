@@ -229,6 +229,11 @@ body, input, select, textarea, button, .ui-btn {
 .def .ui-content .notification .ui-listview a {
 	overflow: hidden;
 }
+.def .ui-content .notification .ui-listview .wrapper {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+}
 .def .ui-content .notification .ui-listview p {
 	margin: 0;
 	font-size: 14px;
@@ -236,8 +241,8 @@ body, input, select, textarea, button, .ui-btn {
 .def .ui-content .notification .ui-listview .btn-delete {
 	border-width: 0;
 	position: absolute;
-	top: 0;
-	right: 5px;
+	top: -10px;
+	right: 0px;
 	background-color: transparent;
 }
 .def .ui-content .notification .ui-listview .item .success {
@@ -543,6 +548,7 @@ body, input, select, textarea, button, .ui-btn {
 .def > .ui-header .desktop .nav ul li {
 	position: relative;
 	float: left;
+	transition: all 0.3s ease-in-out;
 }
 
 /* Paveels Colours */
@@ -579,5 +585,40 @@ body, input, select, textarea, button, .ui-btn {
 	left: 100%
 }
 .def > .ui-header .desktop .nav ul li:hover > ul {
-	display: block
+	display: block;
+	-moz-animation: fadeInUp .3s ease-in-out ;
+	-webkit-animation: fadeInUp .3s ease-in-out;
+	animation: fadeInUp .3s ease-in-out;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
 }
