@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>workedprofile</title>
+	<title>Paveels</title>
 	<link rel="favicon" href="images/favicon.ico">
 	<link rel="stylesheet" href="styles/jquery.mobile.min.css">
 	<link rel="stylesheet" href="styles/wp.css">
@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div data-role="page" id="page_index" class="def">
-		<div data-role="panel" id="left-panel" class="left-panel">
+		<div data-role="panel" id="panel-menu" class="panel-menu">
 			<ul data-role="listview" class="ui-alt-icon ui-nodisc-icon">
 				<li><a href="">Home</a></li>
 				<li data-role="collapsible" data-iconpos="right" data-inset="false">
@@ -103,62 +103,181 @@
 			<form class="ui-filterable">
 				<input data-type="search">
 			</form>
-			<a href="#left-panel" data-role="none">
+			<a href="#panel-menu" data-role="none">
 				<img src="images/logo-paveels.png">
 			</a>
 			<a data-role="none">
 				<img src="images/user-grey.png">
 			</a>
+			<div class="desktop">
+				<div class="main">
+					<a data-role="none" class="logo">
+						<img src="images/logo-paveels-rect.png">
+					</a>
+					<div class="bar">
+						<form class="ui-filterable">
+							<input data-type="search">
+						</form>
+						<a href="">
+							<img src="images/s3/icon/paper-bag.png">
+						</a>
+						<a href="">
+							<img src="images/s3/icon/heart.png">
+						</a>
+					</div>
+				</div>
+				<div class="menu">
+					<div class="main nav">
+						<ul>
+							<li>
+								<a href="">Home</a>
+							</li>
+							<li>
+								<a href="">Bathing</a>
+								<ul>
+									<li><a href="">Bath Accessory</a></li>
+									<li><a href="">Bath Toy</a></li>
+									<li><a href="">Grooming Set</a></li>
+									<li><a href="">Washcloth</a></li>
+								</ul>
+							</li>
+							<li>
+								<a>Eating</a>
+								<ul>
+									<li><a href="">Bottle</a></li>
+									<li><a href="">Bottle Accessory</a></li>
+									<li><a href="">Bowl</a></li>
+									<li><a href="">Container</a></li>
+									<li><a href="">Feeder</a></li>
+									<li><a href="">Maker</a></li>
+									<li><a href="">Meal Set</a></li>
+									<li><a href="">Plate</a></li>
+									<li><a href="">Snack Bag</a></li>
+									<li><a href="">Utensil</a></li>
+								</ul>
+							</li>
+							<li>
+								<a>Outing</a>
+								<ul>
+									<li><a href="">Baby Carrier</a></li>
+									<li><a href="">Backpack</a></li>
+									<li><a href="">Car Accessory</a></li>
+									<li><a href="">Changing Pad</a></li>
+									<li><a href="">Diaper Bag</a></li>
+									<li><a href="">Lunch Box</a></li>
+									<li><a href="">Stroller Accessory</a></li>
+									<li><a href="">Stroller Seat</a></li>
+									<li><a href="">Travel Accessory</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="">Playing</a>
+								<ul>
+									<li><a href="">Puzzle</a></li>
+									<li><a href="">Soft Toy</a></li>
+									<li><a href="">Diaper Bag</a></li>
+									<li><a href="">Teether</a></li>
+									<li><a href="">Wooden Toy</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="">Sleeping</a>
+								<ul>
+									<li><a href="">Blanket</a></li>
+									<li><a href="">Comforter</a></li>
+									<li><a href="">Pillow</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="">Health</a>
+								<ul>
+									<li><a href="">Body Care</a></li>
+									<li><a href="">Health Care</a></li>
+									<li><a href="">Oral Care</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="">Others</a>
+								<ul>
+									<li><a href="">Car</a></li>
+									<li><a href="">Safety</a></li>
+									<li><a href="">Walker</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="">Moms</a>
+								<ul>
+									<li><a href="">Corset</a></li>
+									<li><a href="">Maternity</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="">Brands</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div role="main" class="ui-content">
-			<div class="dis-ui-content hub">
+		<div role="main" class="ui-content ui-content-fluid">
+			<div class="hub">
 				<div class="notification">
 					<ul data-role="listview" data-icon="false">
 						<li class="item">
 							<a href="">
-								<p>Default Notification</p>
-								<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								<div class="wrapper">
+									<p>Default Notification</p>
+									<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								</div>
 							</a>
 						</li>
 						<li class="item">
 							<a href="" class="success">
-								<p>Success Notification</p>
-								<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								<div class="wrapper">
+									<p>Success Notification</p>
+									<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								</div>
 							</a>
 						</li>
 						<li class="item">
 							<a href="" class="info">
-								<p>Info Notification</p>
-								<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								<div class="wrapper">
+									<p>Info Notification</p>
+									<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								</div>
 							</a>
 						</li>
 						<li class="item">
 							<a href="" class="warning">
-								<p>Warning Notification</p>
-								<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								<div class="wrapper">
+									<p>Warning Notification</p>
+									<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								</div>
 							</a>
 						</li>
 						<li class="item">
 							<a href="" class="error">
-								<p>Error Notification</p>
-								<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								<div class="wrapper">
+									<p>Error Notification</p>
+									<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete"></button>
+								</div>
 							</a>
 						</li>
 					</ul>
 				</div>
-				<div class="generic">
+				<div class="promo">
 					<ul class="order">
 						<li class="item">
 							<div class="ui-view">
 								<div class="ui-corner-all custom-corners">
-									<div class="ui-body ui-body-a dis-ui-body">
-										<div class="card">
+									<div class="ui-body ui-body-a">
+										<div class="card rect">
 											<div class="row same-height">
 												<div class="cm6">
 													<img src="images/s3/banner/1.jpg" alt="Trunki Get Set. Go!">
 												</div>
 												<div class="cm4">
-													<div href="" class="description">
+													<div class="desc">
 														<h3 class="title">Trunki Get Set. Go!</h3>
 														<p>Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream. Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream.</p>
 														<a href="" class="ui-btn ui-btn-inline ui-corner-all btn-orange">See Details</a>
@@ -173,11 +292,11 @@
 						<li class="item">
 							<div class="ui-view">
 								<div class="ui-corner-all custom-corners">
-									<div class="ui-body ui-body-a dis-ui-body">
-										<div class="card">
+									<div class="ui-body ui-body-a">
+										<div class="card rect">
 											<div class="row same-height">
 												<div class="cm4">
-													<div href="" class="description">
+													<div class="desc">
 														<h3 class="title">Sophie The Giraffe</h3>
 														<p>Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream. Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream.</p>
 														<a href="" class="ui-btn ui-btn-inline ui-corner-all btn-orange">See Details</a>
@@ -195,15 +314,15 @@
 					</ul>
 				</div>
 				<div class="top-product">
-					<h3 class="main-title">Top Products</h3>
+					<h3 class="sub-title">Top Products</h3>
 					<ul class="order">
 						<li class="item">
 							<div class="ui-view">
 								<div class="ui-corner-all custom-corners">
-									<div class="ui-body ui-body-a dis-ui-body">
+									<div class="ui-body ui-body-a">
 										<div class="card">
 											<img src="images/s3/product/1.ori.jpg" alt="Moby Waterfall Bath Rinser">
-											<div href="" class="description">
+											<div class="desc">
 												<h3 class="title">Moby Waterfall Bath Rinser</h3>
 												<p class="price">Rp. 199.000</p>
 												<p>Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream.</p>
@@ -216,10 +335,10 @@
 						<li class="item">
 							<div class="ui-view">
 								<div class="ui-corner-all custom-corners">
-									<div class="ui-body ui-body-a dis-ui-body">
+									<div class="ui-body ui-body-a">
 										<div class="card">
 											<img src="images/s3/product/2.ori.jpg" alt="Gate Check Bag for Standard & Double Strollers">
-											<div href="" class="description">
+											<div class="desc">
 												<h3 class="title">Gate Check Bag for Standard & Double Strollers</h3>
 												<p class="price">Rp. 239.000</p>
 												<p>Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream.</p>
@@ -232,10 +351,10 @@
 						<li class="item">
 							<div class="ui-view">
 								<div class="ui-corner-all custom-corners">
-									<div class="ui-body ui-body-a dis-ui-body">
+									<div class="ui-body ui-body-a">
 										<div class="card">
 											<img src="images/s3/product/3.ori.jpg" alt="Zoo Insulated Food Jar - Owl">
-											<div href="" class="description">
+											<div class="desc">
 												<h3 class="title">Zoo Insulated Food Jar - Owl</h3>
 												<p class="price">Rp. 319.000</p>
 												<p>Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream.</p>
@@ -248,10 +367,10 @@
 						<li class="item">
 							<div class="ui-view">
 								<div class="ui-corner-all custom-corners">
-									<div class="ui-body ui-body-a dis-ui-body">
+									<div class="ui-body ui-body-a">
 										<div class="card">
 											<img src="images/s3/product/4.ori.jpg" alt="Zoo - Let Mini Backpack with Rein Monkey">
-											<div href="" class="description">
+											<div class="desc">
 												<h3 class="title">Zoo - Let Mini Backpack with Rein Monkey</h3>
 												<p class="price">Rp. 297.000</p>
 												<p>Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream.</p>
@@ -264,10 +383,10 @@
 						<li class="item">
 							<div class="ui-view">
 								<div class="ui-corner-all custom-corners">
-									<div class="ui-body ui-body-a dis-ui-body">
+									<div class="ui-body ui-body-a">
 										<div class="card">
 											<img src="images/s3/product/5.ori.jpg" alt="Bubble Dream Quilt - Ollie the Owl">
-											<div href="" class="description">
+											<div class="desc">
 												<h3 class="title">Bubble Dream Quilt - Ollie the Owl</h3>
 												<p class="price">Rp. 275.000</p>
 												<p>Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream.</p>
@@ -276,6 +395,25 @@
 									</div>
 								</div>
 							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="social">
+					<ul>
+						<li>
+							<a href="http://www.facebook.com/paveels">
+								<img src="images/s3/social/facebook-36.png">
+							</a>
+						</li>
+						<li>
+							<a href="https://instagram.com/paveels/">
+								<img src="images/s3/social/instagram-36.png">
+							</a>
+						</li>
+						<li>
+							<a href="https://youtube.com/paveels/">
+								<img src="images/s3/social/twitter-36.png">
+							</a>
 						</li>
 					</ul>
 				</div>
