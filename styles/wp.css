@@ -236,7 +236,11 @@ body, input, select, textarea, button, .ui-btn {
 }
 .def .ui-content .notification .ui-listview p {
 	margin: 0;
+	margin-right: 32px;
 	font-size: 14px;
+}
+.def .ui-content .notification .ui-listview p.wrap {
+	white-space: normal;
 }
 .def .ui-content .notification .ui-listview .btn-delete {
 	border-width: 0;
