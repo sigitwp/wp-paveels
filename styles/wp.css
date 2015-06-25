@@ -1,48 +1,158 @@
 /* WP Styles */
 
-/* Override JQuery Mobile CSS */
+/* Override JQuery Mobile */
+/* Remove Text Shadow - We Didn't Need You */
+.ui-bar-a,
+.ui-page-theme-a .ui-bar-inherit,
+html .ui-bar-a .ui-bar-inherit,
+html .ui-body-a .ui-bar-inherit,
+html body .ui-group-theme-a .ui-bar-inherit,
+.ui-overlay-a,
+.ui-page-theme-a,
+.ui-page-theme-a .ui-panel-wrapper,
 .ui-body-a,
 .ui-page-theme-a .ui-body-inherit,
 html .ui-bar-a .ui-body-inherit,
 html .ui-body-a .ui-body-inherit,
 html body .ui-group-theme-a .ui-body-inherit,
 html .ui-panel-page-container-a,
-.ui-bar-a,
-.ui-page-theme-a .ui-bar-inherit,
-html .ui-bar-a .ui-bar-inherit,
-html .ui-body-a .ui-bar-inherit,
-html body .ui-group-theme-a .ui-bar-inherit,
 .ui-page-theme-a .ui-btn,
 html .ui-bar-a .ui-btn,
 html .ui-body-a .ui-btn,
 html body .ui-group-theme-a .ui-btn,
-html head+body .ui-btn.ui-btn-a,
+html head + body .ui-btn.ui-btn-a,
 .ui-page-theme-a .ui-btn:visited,
 html .ui-bar-a .ui-btn:visited,
 html .ui-body-a .ui-btn:visited,
 html body .ui-group-theme-a .ui-btn:visited,
-html head+body .ui-btn.ui-btn-a:visited,
+html head + body .ui-btn.ui-btn-a:visited,
 .ui-page-theme-a .ui-btn:hover,
 html .ui-bar-a .ui-btn:hover,
 html .ui-body-a .ui-btn:hover,
 html body .ui-group-theme-a .ui-btn:hover,
-html head+body .ui-btn.ui-btn-a:hover,
-.ui-overlay-a,
-.ui-page-theme-a,
-.ui-page-theme-a .ui-panel-wrapper {
+html head + body .ui-btn.ui-btn-a:hover,
+.ui-page-theme-a .ui-btn:active,
+html .ui-bar-a .ui-btn:active,
+html .ui-body-a .ui-btn:active,
+html body .ui-group-theme-a .ui-btn:active,
+html head + body .ui-btn.ui-btn-a:active,
+.ui-page-theme-a .ui-btn.ui-btn-active,
+html .ui-bar-a .ui-btn.ui-btn-active,
+html .ui-body-a .ui-btn.ui-btn-active,
+html body .ui-group-theme-a .ui-btn.ui-btn-active,
+html head + body .ui-btn.ui-btn-a.ui-btn-active,
+.ui-page-theme-a .ui-checkbox-on:after,
+html .ui-bar-a .ui-checkbox-on:after,
+html .ui-body-a .ui-checkbox-on:after,
+html body .ui-group-theme-a .ui-checkbox-on:after,
+.ui-btn.ui-checkbox-on.ui-btn-a:after,
+.ui-page-theme-a .ui-flipswitch-active,
+html .ui-bar-a .ui-flipswitch-active,
+html .ui-body-a .ui-flipswitch-active,
+html body .ui-group-theme-a .ui-flipswitch-active,
+html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active,
+.ui-page-theme-a .ui-slider-track .ui-btn-active,
+html .ui-bar-a .ui-slider-track .ui-btn-active,
+html .ui-body-a .ui-slider-track .ui-btn-active,
+html body .ui-group-theme-a .ui-slider-track .ui-btn-active,
+html body div.ui-slider-track.ui-body-a .ui-btn-active,
+.ui-bar-b,
+.ui-page-theme-b .ui-bar-inherit,
+html .ui-bar-b .ui-bar-inherit,
+html .ui-body-b .ui-bar-inherit,
+html body .ui-group-theme-b .ui-bar-inherit,
+.ui-overlay-b,
+.ui-page-theme-b,
+.ui-page-theme-b .ui-panel-wrapper,
+.ui-body-b,
+.ui-page-theme-b .ui-body-inherit,
+html .ui-bar-b .ui-body-inherit,
+html .ui-body-b .ui-body-inherit,
+html body .ui-group-theme-b .ui-body-inherit,
+html .ui-panel-page-container-b,
+.ui-page-theme-b .ui-btn,
+html .ui-bar-b .ui-btn,
+html .ui-body-b .ui-btn,
+html body .ui-group-theme-b .ui-btn,
+html head + body .ui-btn.ui-btn-b,
+.ui-page-theme-b .ui-btn:visited,
+html .ui-bar-b .ui-btn:visited,
+html .ui-body-b .ui-btn:visited,
+html body .ui-group-theme-b .ui-btn:visited,
+html head + body .ui-btn.ui-btn-b:visited,
+.ui-page-theme-b .ui-btn:hover,
+html .ui-bar-b .ui-btn:hover,
+html .ui-body-b .ui-btn:hover,
+html body .ui-group-theme-b .ui-btn:hover,
+html head + body .ui-btn.ui-btn-b:hover,
+.ui-page-theme-b .ui-btn:active,
+html .ui-bar-b .ui-btn:active,
+html .ui-body-b .ui-btn:active,
+html body .ui-group-theme-b .ui-btn:active,
+html head + body .ui-btn.ui-btn-b:active,
+.ui-page-theme-b .ui-btn.ui-btn-active,
+html .ui-bar-b .ui-btn.ui-btn-active,
+html .ui-body-b .ui-btn.ui-btn-active,
+html body .ui-group-theme-b .ui-btn.ui-btn-active,
+html head + body .ui-btn.ui-btn-b.ui-btn-active,
+.ui-page-theme-b .ui-checkbox-on:after,
+html .ui-bar-b .ui-checkbox-on:after,
+html .ui-body-b .ui-checkbox-on:after,
+html body .ui-group-theme-b .ui-checkbox-on:after,
+.ui-btn.ui-checkbox-on.ui-btn-b:after,
+.ui-page-theme-b .ui-flipswitch-active,
+html .ui-bar-b .ui-flipswitch-active,
+html .ui-body-b .ui-flipswitch-active,
+html body .ui-group-theme-b .ui-flipswitch-active,
+html body .ui-flipswitch.ui-bar-b.ui-flipswitch-active,
+.ui-page-theme-b .ui-slider-track .ui-btn-active,
+html .ui-bar-b .ui-slider-track .ui-btn-active,
+html .ui-body-b .ui-slider-track .ui-btn-active,
+html body .ui-group-theme-b .ui-slider-track .ui-btn-active,
+html body div.ui-slider-track.ui-body-b .ui-btn-active {
 	text-shadow: none;
 }
+
+/* Remove Box Shadow - We Didn't Need You */
+.ui-shadow,
+.ui-shadow-inset,
+.ui-overlay-shadow,
+.ui-shadow-icon.ui-btn:after,
+.ui-shadow-icon .ui-btn:after,
 .ui-page-theme-a .ui-btn:focus,
 html .ui-bar-a .ui-btn:focus,
 html .ui-body-a .ui-btn:focus,
 html body .ui-group-theme-a .ui-btn:focus,
-html head+body .ui-btn.ui-btn-a:focus,
+html head + body .ui-btn.ui-btn-a:focus,
 .ui-page-theme-a .ui-focus,
 html .ui-bar-a .ui-focus,
 html .ui-body-a .ui-focus,
 html body .ui-group-theme-a .ui-focus,
-html head+body .ui-btn-a.ui-focus,
-html head+body .ui-body-a.ui-focus {
+html head + body .ui-btn-a.ui-focus,
+html head + body .ui-body-a.ui-focus,
+.ui-page-theme-b .ui-btn:focus,
+html .ui-bar-b .ui-btn:focus,
+html .ui-body-b .ui-btn:focus,
+html body .ui-group-theme-b .ui-btn:focus,
+html head + body .ui-btn.ui-btn-b:focus,
+.ui-page-theme-b .ui-focus,
+html .ui-bar-b .ui-focus,
+html .ui-body-b .ui-focus,
+html body .ui-group-theme-b .ui-focus,
+html head + body .ui-btn-b.ui-focus,
+html head + body .ui-body-b.ui-focus,
+.ui-loader-verbose,
+.flow,
+.ui-dialog.flow,
+.ui-controlgroup-controls a.ui-shadow:not(:focus),
+.ui-controlgroup-controls button.ui-shadow:not(:focus),
+.ui-controlgroup-controls div.ui-shadow:not(.ui-focus),
+.ui-input-text input:focus,
+.ui-input-search input:focus,
+.ui-panel-display-reveal,
+.ui-panel-position-right.ui-panel-display-reveal,
+.ui-panel-display-overlay,
+.ui-panel-position-right.ui-panel-display-overlay {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
@@ -194,16 +304,486 @@ body, input, select, textarea, button, .ui-btn {
 	color: #E8BB00; */
 }
 
-
-
-/* Paveels Colours */
-/* C0D531, DCE372, FDD356, BC833A, AB6B28, 74401A */
-/* Contek - http://pixelarity.com/items/demos/threshold/red */
-
-/* Paveels Def */
+/* Extend Base */
+.def > .ui-header {
+	overflow: hidden;
+}
 .def .ui-content.ui-content-fluid {
 	margin: 0;
 	padding: 0;
+}
+.def .ui-content .container {
+	margin: 0 auto;
+	max-width: 1170px;
+}
+.def .ui-content .container-fluid {
+	width: 100%;
+}
+.def .ui-content .container > .section,
+.def .ui-content .container-fluid > .section {
+	margin-bottom: 5px;
+}
+.def .ui-content .container > .section:last-child,
+.def .ui-content .container-fluid > .section:last-child {
+	margin-bottom: 20px;
+}
+.def .ui-content .container > .section h2,
+.def .ui-content .container-fluid > .section h2 {
+	margin: 10px 20px;
+}
+.def .ui-content .order {
+	margin: 0;
+	padding: 0;
+}
+.def .ui-content .order > .item {
+	list-style: none;
+}
+.def .ui-content .order > .item:last-child {
+	border-bottom: 0;
+}
+.def .ui-content .ui-view {
+	margin: 10px 0;
+	padding: 5px;
+}
+.def .ui-content a.ui-view {
+	display: block;
+}
+.def .ui-content .order > .item:last-child .ui-view {
+	margin-bottom: 40px;
+}
+.def .ui-content .ui-bar,
+.def .ui-content .ui-body {
+	padding: 8px;
+}
+.def .ui-content .ui-body,
+.def .ui-content .ui-foot {
+	margin-top: -1px;
+	padding: 0;
+}
+.def .ui-content .ui-corner-all > div:first-child {
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+.def .ui-content .ui-corner-all > div:last-child {
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.def .ui-content .ui-bar h3 {
+	margin-bottom: 0;
+}
+.def .ui-content .ui-body p {
+	margin-top: 0;
+	margin-bottom: 4px;
+}
+.def .ui-content .ui-body p:last-child {
+	margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+	.def .ui-content .row .cm4,
+	.def .ui-content .row .cm5,
+	.def .ui-content .row .cm6 {
+		float: left;
+	}
+	.def .ui-content .row .cm4 {
+		width: 40%;
+	}
+	.def .ui-content .row .cm5 {
+		width: 50%;
+	}
+	.def .ui-content .row .cm6 {
+		width: 60%;
+	}
+}
+
+.def .ui-content .same-height {
+	display: table;
+}
+.def .ui-content .same-height [class*="cm"] {
+	float: none;
+	display: block;
+	vertical-align: middle;
+	background-color: #EEEEEE;
+}
+@media (min-width: 768px) {
+	.def .ui-content .same-height [class*="cm"] {
+		display: table-cell;
+	}
+}
+
+.def .ui-content .order.ordered .item img {
+	background-color: #EEEEEE;
+}
+.def .ui-content .order.ordered.mini .item {
+	float: left;
+	width: 50%;
+}
+.def .ui-content .order.ordered.mini .ui-view {
+	margin: 0;
+}
+@media (min-width: 480px) {
+	.def .ui-content .order.ordered {
+		overflow: hidden;
+	}
+	.def .ui-content .order.ordered .item {
+		float: left;
+		width: 50%;
+	}
+	.def .ui-content .order.ordered.mini .item {
+		width: 25%;
+	}
+}
+@media (min-width: 768px) {
+	.def .ui-content .order.ordered .item {
+		float: left;
+		width: 25%;
+	}
+	.def .ui-content .order.ordered.mini .item {
+		width: 12.5%;
+	}
+}
+@media (min-width: 992px) {
+	.def .ui-content .order.ordered .item {
+		float: left;
+		width: 20%;
+	}
+	.def .ui-content .order.ordered.mini .item {
+		width: 10%;
+	}
+}
+
+.def .ui-content .notif .ui-listview {
+	margin: 0;
+}
+.def .ui-content .notif .ui-listview .item:last-child {
+	margin-bottom: 20px;
+}
+.def .ui-content .notif .ui-listview a {
+	overflow: hidden;
+}
+.def .ui-content .notif .ui-listview .wrapper {
+	margin: 0 auto;
+	position: relative;
+	max-width: 1140px;
+}
+.def .ui-content .notif .ui-listview p {
+	margin: 0;
+	margin-right: 32px;
+	font-size: 14px;
+}
+.def .ui-content .notif .ui-listview p.wrap {
+	white-space: normal;
+}
+.def .ui-content .notif .ui-listview .btn-del {
+	border-width: 0;
+	position: absolute;
+	top: -10px;
+	right: 0px;
+	background-color: transparent;
+}
+.def .ui-content .notif .ui-listview .item .success {
+	background-color: #14C790;
+	color: #FFFFFF;
+}
+.def .ui-content .notif .ui-listview .item .info {
+	background-color: #1478C7;
+	color: #FFFFFF;
+}
+.def .ui-content .notif .ui-listview .item .warning {
+	background-color: #F38918;
+	color: #FFFFFF;
+}
+.def .ui-content .notif .ui-listview .item .error {
+	background-color: #E01733;
+	color: #FFFFFF;
+}
+
+.def .ui-content .card img {
+	width: 100%;
+	vertical-align: middle;
+}
+.def .ui-content .card .desc {
+	display: block;
+	padding: 20px;
+	color: inherit;
+	font-weight: 400;
+	text-decoration: none;
+}
+.def .ui-content .card .desc .title {
+	text-align: center;
+	margin-top: 0;
+}
+@media (min-width: 768px) {
+	.def .ui-content .card.rect .desc .title {
+		font-size: 24px;
+	}
+}
+.def .ui-content .card .desc .price {
+	margin: -10px 0 10px;
+	color: #248C00;
+	font-size: 18px;
+	text-align: center;
+}
+.def .ui-content .card .cost {
+	padding: 3em 2.2em;
+	border-radius: 50%;
+	background-color: #9E9E9E;
+	position: absolute;
+	top: 5%;
+	right: 5%;
+}
+.def .ui-content .card .cost p {
+	margin: 0;
+	color: #FFFFFF;
+	font-size: 18px;
+}
+
+.def .ui-content .itemized {
+	margin-bottom: 20px;
+}
+.def .ui-content .itemized .view {
+	padding: 15px;
+	background-color: #EEEEEE;
+}
+.def .ui-content .itemized .info {
+	padding: 25px 25px;
+}
+.def .ui-content .itemized .info h3 {
+	margin: 0;
+	margin-bottom: 4px;
+	font-size: 24px;
+}
+.def .ui-content .itemized .info .sub {
+	margin-bottom: 8px;
+	font-size: 18px;
+}
+.def .ui-content .itemized .info .price {
+	margin-bottom: 4px;
+	color: #248C00;
+	font-size: 18px;
+}
+.def .ui-content .itemized .info .status {
+	margin-bottom: 8px;
+	border-radius: 5px;
+	padding: 4px 16px;
+	display: inline-block;
+}
+.def .ui-content .itemized .info .status.available {
+	background-color: #1478C7;
+	color: #FFFFFF;
+}
+.def .ui-content .itemized .info .status.empty {
+	background-color: #E01733;
+	color: #FFFFFF;
+}
+.def .ui-content .itemized .info .status.discount {
+	background-color: #14C790;
+	color: #FFFFFF;
+}
+.def .ui-content .itemized .info .discount .through {
+	padding: 0 4px;
+	color: #333333;
+	position: relative;
+}
+.def .ui-content .itemized .info .discount .through:before {
+	content: "";
+	background-color: #BD2021;
+	position: absolute;
+	top: 7px;
+	left: 0;
+	right: 0;
+	height: 2px;
+}
+.def .ui-content .itemized .info .discount span:last-child {
+	margin-left: 10px;
+}
+.def .ui-content .itemized .info .desc {
+	padding: 10px 0;
+}
+
+.def .ui-content .table-stripes thead th,
+.def .ui-content .table-stripes tbody tr:last-child,
+.def .ui-content .ui-table tfoot th {
+	border-bottom: 1px solid #DDDDDD;
+}
+.def .ui-content .table-stripes tfoot tr:last-child th {
+	border-bottom: 0;
+}
+.def .ui-content .table-stripes tbody th,
+.def .ui-content .table-stripes tbody td {
+	border-bottom: 1px solid #DDDDDD;
+	vertical-align: middle;
+}
+.def .ui-content .ui-table tbody th,
+.def .ui-content .ui-table tbody td {
+	vertical-align: middle;
+}
+.def .ui-content .table-stripes tbody tr:nth-child(odd) td,
+.def .ui-content .table-stripes tbody tr:nth-child(odd) th {
+	background-color: #EEEEEE;
+}
+
+.def .ui-content .ui-table th {
+	padding: 10px 15px;
+}
+.def .ui-content .ui-table td {
+	padding: 5px 15px;
+}
+.def .ui-content .ui-table tr th,
+.def .ui-content .ui-table tr td {
+	text-align: center;
+}
+.def .ui-content .ui-table tr th:first-child,
+.def .ui-content .ui-table tr td:first-child {
+	text-align: left;
+}
+.def .ui-content .ui-table tr th:last-child,
+.def .ui-content .ui-table tr td:last-child {
+	text-align: right;
+}
+@media (max-width: 35em) {
+	.def .ui-content .table-stripes tr th,
+	.def .ui-content .table-stripes tr td {
+		text-align: right;
+	}
+	.def .ui-content .table-stripes tr td .ui-table-cell-label {
+		text-align: left;
+		float: left;
+	}
+	.def .ui-content .table-stroke tr th,
+	.def .ui-content .table-stroke tr td {
+		text-align: center;
+	}
+}
+
+.def .ui-content .ui-table a {
+	margin: -5px -10px;
+	color: inherit;
+	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+	display: block;
+}
+.def .ui-content .ui-table .media img {
+	border-radius: 8px;
+	background-color: #DDDDDD;
+	max-width: 60px;
+	max-height: 60px;
+	vertical-align: middle;
+}
+.def .ui-content .ui-table .media span {
+	margin-left: 10px;
+}
+.def .ui-content .ui-table tfoot th {
+	font-weight: 400;
+}
+.def .ui-content .ui-table tfoot .ui-table-cell-label {
+	display: none;
+}
+.def .ui-content .ui-table tfoot .spare {
+	padding: 2px;
+	background-color: #001848;
+}
+.def .ui-content .ui-table tfoot .total th {
+	font-size: 20px;
+	font-weight: 700;
+}
+@media (max-width: 35em) {
+	.def .ui-content .ui-table tfoot th {
+		clear: inherit;
+	}
+	.def .ui-content .ui-table tfoot th:first-child {
+		width: 40%
+	}
+	.def .ui-content .ui-table tfoot th:last-child {
+		width: 60%
+	}
+	.def .ui-content .ui-table.table-stroke .media span {
+		margin-left: 0;
+		display: block;
+		text-align: center;
+	}
+}
+.def .ui-content .ui-table-reflow tbody th {
+	margin-top: 0;
+}
+.def .ui-content .ui-table-reflow tbody th .ui-table-cell-label {
+	display: none;
+}
+
+/* Prototype - Following Helbak Table and Adopted Media Class */
+.def .ui-content .table-helbak .media {
+	min-width: 240px;
+}
+@media (max-width: 320px) {
+	.def .ui-content .table-helbak .media {
+		min-width: 180px;
+	}
+}
+.def .ui-content .table-helbak .media,
+.def .ui-content .table-helbak .media-body {
+  overflow: hidden;
+  zoom: 1;
+}
+.def .ui-content .table-helbak .media-body {
+  width: 10000px;
+  font-weight: 400;
+}
+.def .ui-content .table-helbak .media-object {
+  display: block;
+}
+.def .ui-content .table-helbak .media-object.img-thumbnail {
+  max-width: none;
+}
+.def .ui-content .table-helbak .media-right,
+.def .ui-content .table-helbak .media > .pull-right {
+  padding-left: 10px;
+}
+.def .ui-content .table-helbak .media-left,
+.def .ui-content .table-helbak .media > .pull-left {
+  padding-right: 10px;
+}
+.def .ui-content .table-helbak .media-left,
+.def .ui-content .table-helbak .media-right,
+.def .ui-content .table-helbak .media-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.def .ui-content .table-helbak .media-middle {
+  vertical-align: middle;
+}
+.def .ui-content .table-helbak .media-bottom {
+  vertical-align: bottom;
+}
+.def .ui-content .table-helbak .media-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.def .ui-content .table-helbak .media-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+/* End General Styles */
+/* Start Custom Styles */
+.def .ui-content .social {
+	text-align: center;
+}
+.def .ui-content .social ul {
+	margin: 0 auto;
+	padding: 0;
+	display: inline-block;
+	list-style: none;
+}
+.def .ui-content .social ul li {
+	float: left;
+}
+.def .ui-content .social ul li a {
+	display: block;
+	padding: 10px;
+}
+.def .ui-content .social ul li a img {
+	vertical-align: middle;
 }
 
 .def .panel-menu .ui-listview > .ui-li-static {
@@ -219,239 +799,6 @@ body, input, select, textarea, button, .ui-btn {
 .def .panel-menu .ui-listview > li .ui-listview > li a {
 	font-weight: 400;
 }
-
-.def .ui-content .notification .ui-listview {
-	margin: 0;
-}
-.def .ui-content .notification .ui-listview .item:last-child {
-	margin-bottom: 20px;
-}
-.def .ui-content .notification .ui-listview a {
-	overflow: hidden;
-}
-.def .ui-content .notification .ui-listview .wrapper {
-  position: relative;
-  max-width: 1140px;
-  margin: 0 auto;
-}
-.def .ui-content .notification .ui-listview p {
-	margin: 0;
-	margin-right: 32px;
-	font-size: 14px;
-}
-.def .ui-content .notification .ui-listview p.wrap {
-	white-space: normal;
-}
-.def .ui-content .notification .ui-listview .btn-delete {
-	border-width: 0;
-	position: absolute;
-	top: -10px;
-	right: 0px;
-	background-color: transparent;
-}
-.def .ui-content .notification .ui-listview .item .success {
-	background-color: #14C790;
-	color: #FFFFFF;
-}
-.def .ui-content .notification .ui-listview .item .info {
-	background-color: #1478C7;
-	color: #FFFFFF;
-}
-.def .ui-content .notification .ui-listview .item .warning {
-	background-color: #F38918;
-	color: #FFFFFF;
-}
-.def .ui-content .notification .ui-listview .item .error {
-	background-color: #E01733;
-	color: #FFFFFF;
-}
-
-/* Borrowing From WP */
-.def .ui-content > .hub .container > .section {
-	margin-bottom: 5px;
-}
-.def .ui-content > .hub .container > .section:last-child {
-	margin-bottom: 20px;
-}
-.def .ui-content > .hub .ui-bar,
-.def .ui-content > .hub .ui-body {
-	padding: 8px;
-}
-.def .ui-content > .hub .ui-body,
-.def .ui-content > .hub .ui-foot {
-	margin-top: -1px;
-	padding: 0;
-}
-.def .ui-content > .hub .ui-corner-all > div:first-child {
-	border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
-}
-.def .ui-content > .hub .ui-corner-all > div:last-child {
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-.def .ui-content > .hub .ui-bar h3 {
-	margin-bottom: 0;
-}
-.def .ui-content > .hub .ui-body p {
-	margin-top: 0;
-	margin-bottom: 4px;
-}
-.def .ui-content > .hub .ui-body p:last-child {
-	margin-bottom: 0;
-}
-
-.def .ui-content > .hub .order {
-	margin: 0;
-	padding: 0;
-}
-.def .ui-content > .hub .order > .item {
-	list-style: none;
-}
-.def .ui-content > .hub .order > .item:last-child {
-	border-bottom: 0;
-}
-.def .ui-content > .hub .ui-view {
-	margin: 10px 0;
-	padding: 5px;
-}
-.def .ui-content > .hub .order > .item:last-child .ui-view {
-	margin-bottom: 40px;
-}
-
-/* Extend Hub */
-.def .ui-content > .hub .promo,
-.def .ui-content > .hub .top-product {
-	margin: 0 auto;
-	max-width: 1170px;
-}
-.def .ui-content > .hub .sub-title {
-	text-align: center;
-}
-.def .ui-content > .hub .btn-orange {
-	margin: 10px 0;
-	background-color: #FDD356;
-	border-color: #FDC524;
-	color: #2F2F2F;
-}
-
-.def .ui-content > .hub .row {
-	overflow: hidden;
-}
-@media screen and (min-width: 480px) {
-	.def .ui-content > .hub .top-product .order {
-		overflow: hidden;
-	}
-	.def .ui-content > .hub .top-product .order .item {
-		float: left;
-		width: 50%;
-	}
-}
-@media screen and (min-width: 768px) {
-	.def .ui-content > .hub .row .cm4,
-	.def .ui-content > .hub .row .cm5,
-	.def .ui-content > .hub .row .cm6 {
-		float: left;
-	}
-	.def .ui-content > .hub .row .cm4 {
-		width: 40%;
-	}
-	.def .ui-content > .hub .row .cm5 {
-		width: 50%;
-	}
-	.def .ui-content > .hub .row .cm6 {
-		width: 60%;
-	}
-	.def .ui-content > .hub .top-product .order .item {
-		float: left;
-		width: 25%;
-	}
-}
-@media screen and (min-width: 992px) {
-	.def .ui-content > .hub .top-product .order .item {
-		float: left;
-		width: 20%;
-	}
-}
-
-.def .ui-content > .hub .same-height {
-	display: table;
-}
-.def .ui-content > .hub .same-height [class*="cm"] {
-	float: left;
-	display: table-cell;
-	vertical-align: middle;
-	background-color: #EEEEEE;
-}
-@media screen and (min-width: 768px) {
-	.def .ui-content > .hub .same-height [class*="cm"] {
-		float: none;
-	}
-}
-
-.def .ui-content > .hub .card img {
-	width: 100%;
-	vertical-align: middle;
-}
-.def .ui-content > .hub .card .bg-img {
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-.def .ui-content > .hub .card .desc {
-	display: block;
-	padding: 20px;
-	color: inherit;
-	font-weight: 400;
-	text-decoration: none;
-}
-.def .ui-content > .hub .card .desc .title {
-	text-align: center;
-	margin-top: 0;
-}
-@media screen and (min-width: 768px) {
-	.def .ui-content > .hub .card.rect .desc .title {
-		font-size: 24px;
-	}
-}
-.def .ui-content > .hub .card .desc .price {
-	margin: -10px 0 10px;
-	color: #248C00;
-	font-size: 18px;
-	text-align: center;
-}
-.def .ui-content > .hub .card .cost {
-	padding: 3em 2.2em;
-	border-radius: 50%;
-	background-color: #9E9E9E;
-	position: absolute;
-	top: 5%;
-	right: 5%;
-}
-.def .ui-content > .hub .card .cost p {
-	margin: 0;
-	color: #FFFFFF;
-	font-size: 18px;
-}
-.def .ui-content > .hub .social {
-	text-align: center;
-}
-.def .ui-content > .hub .social ul {
-	margin: 0 auto;
-	padding: 0;
-	display: inline-block;
-	list-style: none;
-}
-.def .ui-content > .hub .social ul li {
-	float: left;
-}
-.def .ui-content > .hub .social ul li a {
-	display: block;
-	padding: 10px;
-}
-.def .ui-content > .hub .social ul li a img {
-	vertical-align: middle;
-}
-
 
 .def > .ui-header {
 	background-color: #FDD356;
@@ -526,6 +873,7 @@ body, input, select, textarea, button, .ui-btn {
 	max-width: 180px;
 	max-height: 64px;
 }
+
 /* Get From http://codepen.io/philhoyt/pen/ujHzd */
 .def > .ui-header .desktop .nav {
 	display: block;
@@ -554,10 +902,6 @@ body, input, select, textarea, button, .ui-btn {
 	float: left;
 	transition: all 0.3s ease-in-out;
 }
-
-/* Paveels Colours */
-/* C0D531, DCE372, FDD356, BC833A, AB6B28, 74401A */
-
 .def > .ui-header .desktop .nav ul li.active,
 .def > .ui-header .desktop .nav ul li:hover {
 	background-color: #EDAF02;
@@ -590,39 +934,41 @@ body, input, select, textarea, button, .ui-btn {
 }
 .def > .ui-header .desktop .nav ul li:hover > ul {
 	display: block;
-	-moz-animation: fadeInUp .3s ease-in-out ;
 	-webkit-animation: fadeInUp .3s ease-in-out;
+	-moz-animation: fadeInUp .3s ease-in-out ;
 	animation: fadeInUp .3s ease-in-out;
 }
 
 @-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(10px);
-    transform: translateY(10px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(10px);
+		transform: translateY(10px);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
 }
 @keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(10px);
-    -ms-transform: translateY(10px);
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(10px);
+		-ms-transform: translateY(10px);
+		transform: translateY(10px);
+	}
+		100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+	}
 }
 .fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
+	-webkit-animation-name: fadeInUp;
+	animation-name: fadeInUp;
 }
+/* Paveels Colours */
+/* C0D531, DCE372, FDD356, BC833A, AB6B28, 74401A */
+/* Contek - http://pixelarity.com/items/demos/threshold/red
