@@ -763,9 +763,15 @@ body, input, select, textarea, button, .ui-btn {
   padding-left: 0;
   list-style: none;
 }
-
 /* End General Styles */
+
 /* Start Custom Styles */
+.def .ui-content .section .btn-orange {
+	margin: 10px 0;
+	background-color: #FDD356;
+	border-color: #FDC524;
+	color: #2F2F2F;
+}
 .def .ui-content .social {
 	text-align: center;
 }
