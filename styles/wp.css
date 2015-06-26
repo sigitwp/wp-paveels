@@ -843,6 +843,12 @@ body, input, select, textarea, button, .ui-btn {
 	text-decoration: none;
 	color: inherit;
 }
+.def .ui-content .card-words .as-title {
+	margin-top: 20px;
+}
+.def .ui-content .card-words .as-title:first-child {
+	margin-top: 0;
+}
 .def .ui-content .card-words .contact {
 	margin: 20px auto 0;
 	padding: 20px;
@@ -855,6 +861,18 @@ body, input, select, textarea, button, .ui-btn {
 }
 .def .ui-content .hide-column-toggle .ui-table-columntoggle-btn {
 	display: none;
+}
+.def .ui-content .acts {
+	margin-bottom: 20px;
+}
+.def .ui-content .acts a {
+	min-width: 180px;
+}
+.def .ui-content .acts .pull-right {
+	float: right;
+}
+.def .ui-content .acts .pull-left {
+	float: left;
 }
 
 /* Start Custom Styles */
