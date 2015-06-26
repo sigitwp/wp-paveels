@@ -831,6 +831,28 @@ body, input, select, textarea, button, .ui-btn {
 .def .ui-content .card.rect .desc .title img {
 	width: auto;
 }
+.def .ui-content .card-words {
+	padding: 20px 40px;
+	font-size: 18px;
+	text-align: center;
+}
+.def .ui-content .card-words p {
+	margin-bottom: 10px;
+}
+.def .ui-content .card-words a {
+	text-decoration: none;
+	color: inherit;
+}
+.def .ui-content .card-words .contact {
+	margin: 20px auto 0;
+	padding: 20px;
+	border: 2px solid #99AB1D;
+	background-color: #c0d531;
+	max-width: 360px;
+}
+.def .ui-content .card-words .contact p {
+	margin-bottom: 4px;
+}
 .def .ui-content .hide-column-toggle .ui-table-columntoggle-btn {
 	display: none;
 }
