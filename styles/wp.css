@@ -1111,6 +1111,29 @@ body, input, select, textarea, button, .ui-btn {
 	-webkit-animation-name: fadeInUp;
 	animation-name: fadeInUp;
 }
+
+.def > .ui-footer {
+	background-color: #FDCC3D;
+	border-width: 0;
+	border-top: 4px solid #EDAF02;
+}
+.def > .ui-footer .ui-btn {
+	margin: 0;
+	padding: 6px;
+	border-radius: 0;
+	background-color: transparent;
+	font-size: 16px;
+	color: #68340B;
+	font-weight: 700;
+}
+.def > .ui-footer .ui-btn.ui-btn-active,
+.def > .ui-footer .active {
+	border-color: #EDAF02;
+	background-color: #EDAF02;
+}
+.def > .ui-footer .ui-navbar li:last-child .ui-btn {
+	margin-right: 0;
+}
 /* Paveels Colours */
 /* C0D531, DCE372, FDD356, BC833A, AB6B28, 74401A */
 /* Contek - http://pixelarity.com/items/demos/threshold/red
