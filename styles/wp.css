@@ -828,6 +828,9 @@ body, input, select, textarea, button, .ui-btn {
 	color: inherit;
 	display: block;
 }
+.def .ui-content .card.rect .desc .title img {
+	width: auto;
+}
 .def .ui-content .hide-column-toggle .ui-table-columntoggle-btn {
 	display: none;
 }
