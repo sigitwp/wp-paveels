@@ -380,10 +380,26 @@ body, input, select, textarea, button, .ui-btn {
 }
 
 @media (min-width: 768px) {
+	.def .ui-content .row .cm1,
+	.def .ui-content .row .cm2,
+	.def .ui-content .row .cm3,
 	.def .ui-content .row .cm4,
 	.def .ui-content .row .cm5,
-	.def .ui-content .row .cm6 {
+	.def .ui-content .row .cm6,
+	.def .ui-content .row .cm7,
+	.def .ui-content .row .cm8,
+	.def .ui-content .row .cm9,
+	.def .ui-content .row .cm10 {
 		float: left;
+	}
+	.def .ui-content .row .cm1 {
+		width: 10%;
+	}
+	.def .ui-content .row .cm2 {
+		width: 20%;
+	}
+	.def .ui-content .row .cm3 {
+		width: 30%;
 	}
 	.def .ui-content .row .cm4 {
 		width: 40%;
@@ -393,6 +409,18 @@ body, input, select, textarea, button, .ui-btn {
 	}
 	.def .ui-content .row .cm6 {
 		width: 60%;
+	}
+	.def .ui-content .row .cm7 {
+		width: 70%;
+	}
+	.def .ui-content .row .cm8 {
+		width: 80%;
+	}
+	.def .ui-content .row .cm9 {
+		width: 90%;
+	}
+	.def .ui-content .row .cm10 {
+		width: 100%;
 	}
 }
 
@@ -544,6 +572,9 @@ body, input, select, textarea, button, .ui-btn {
 .def .ui-content .itemized .view {
 	padding: 15px;
 	background-color: #EEEEEE;
+}
+.def .ui-content .itemized .view img {
+	vertical-align: middle;
 }
 .def .ui-content .itemized .info {
 	padding: 25px 25px;
@@ -765,11 +796,69 @@ body, input, select, textarea, button, .ui-btn {
 }
 /* End General Styles */
 
+/* Modified */
+.def .ui-content .itemized .info {
+	padding: 20px;
+}
+@media (min-width: 768px) {
+	.def .ui-content .itemized .info {
+		padding: 30px 40px;
+	}
+}
+.def .ui-content .itemized .info .sub {
+	margin-bottom: 4px;
+}
+.def .ui-content .itemized .info .discount {
+	margin-bottom: 8px;
+}
+
+/* New */
+.def .ui-content .container:first-child {
+	margin-top: 20px;
+}
+.def .ui-content .order.ordered.mini .gap-round {
+	padding: 10px;
+	display: block;
+}
+.def .ui-content .order.ordered.mini .gap-round img {
+	border-radius: 5px;
+}
+.def .ui-content .card .a-plane {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+}
+.def .ui-content .hide-column-toggle .ui-table-columntoggle-btn {
+	display: none;
+}
+
 /* Start Custom Styles */
+.def .ui-content .yellow-block {
+	margin: 5px !important;
+	padding: 8px 20px;
+	border: 2px solid #EDAF02;
+	background-color: #FDCC3D;
+	color: #68340B;
+}
+.def .ui-content .yellow-block a {
+	text-decoration: none;
+	color: inherit;
+}
+@media (min-width: 768px) {
+	.def .ui-content .yellow-block {
+		display: inline-block;
+	}
+}
 .def .ui-content .section .btn-orange {
 	margin: 10px 0;
 	background-color: #FDD356;
-	border-color: #FDC524;
+	border-width: 0;
+	color: #2F2F2F;
+}
+.def .ui-content .section .btn-brown {
+	margin: 10px 0;
+	background-color: #BC833A;
+	border-width: 0;
 	color: #2F2F2F;
 }
 .def .ui-content .social {
@@ -905,6 +994,7 @@ body, input, select, textarea, button, .ui-btn {
 	line-height: 34px;
 	font-size: 16px;
 	color: #68340B;
+	cursor: pointer;
 }
 .def > .ui-header .desktop .nav ul li {
 	position: relative;
