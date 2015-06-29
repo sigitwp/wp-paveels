@@ -945,6 +945,34 @@ body, input, select, textarea, button, .ui-btn {
 	vertical-align: middle;
 }
 
+.def .ui-content .card .cost {
+	padding: 0;
+	text-align: center;
+	width: 60px;
+	height: 60px;
+	top: 10px;
+	right: 10px;
+}
+.def .ui-content .card .cost.level-5 {
+	background-color: #FD3D3D;
+}
+.def .ui-content .card .cost.level-4 {
+	background-color: #FD8A3D;
+}
+.def .ui-content .card .cost.level-3 {
+	background-color: #FDB03D;
+}
+.def .ui-content .card .cost.level-2 {
+	background-color: #A7DA17;
+}
+.def .ui-content .card .cost.level-1 {
+	background-color: #34AED7;
+}
+.def .ui-content .card .cost p {
+	margin: 18.5px 0px;
+	font-weight: 700;
+}
+
 .def .panel-menu .ui-listview > .ui-li-static {
 	padding: 0;
 }
