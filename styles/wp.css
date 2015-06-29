@@ -894,7 +894,7 @@ body, input, select, textarea, button, .ui-btn {
 
 /* Start Custom Styles */
 .def .ui-content .yellow-block {
-	margin: 5px !important;
+	margin: 15px 5px !important;
 	padding: 8px 20px;
 	border: 2px solid #EDAF02;
 	background-color: #FDCC3D;
