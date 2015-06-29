@@ -743,6 +743,12 @@ body, input, select, textarea, button, .ui-btn {
 }
 
 /* Prototype - Following Helbak Table and Adopted Media Class */
+.def .ui-content .table-helbak thead tr th:first-child {
+	width: 75%;
+}
+.def .ui-content .table-helbak thead tr th:last-child {
+	width: 25%;
+}
 .def .ui-content .table-helbak .media {
 	min-width: 240px;
 }
@@ -864,15 +870,30 @@ body, input, select, textarea, button, .ui-btn {
 }
 .def .ui-content .acts {
 	margin-bottom: 20px;
+	overflow:hidden;
 }
-.def .ui-content .acts a {
-	min-width: 180px;
+.def .ui-content .section .acts {
+	margin-bottom: 20px;
+	padding: 10px;
 }
-.def .ui-content .acts .pull-right {
-	float: right;
+.def .ui-content .section .acts a {
+	margin: 5px 0;
+	width: 100%;
+	-webkit-box-sizing : border-box;‌​
+	-moz-box-sizing : border-box;
+	box-sizing : border-box;
 }
-.def .ui-content .acts .pull-left {
-	float: left;
+@media (min-width: 480px) {
+	.def .ui-content .section .acts a {
+		width: auto;
+		min-width: 180px;
+	}
+	.def .ui-content .section .acts .pull-left {
+		float: left;
+	}
+	.def .ui-content .section .acts .pull-right {
+		float: right;
+	}
 }
 
 /* Start Custom Styles */
