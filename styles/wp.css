@@ -425,6 +425,7 @@ body, input, select, textarea, button, .ui-btn {
 
 .def .ui-content .same-height {
 	display: table;
+	width: 100%;
 }
 .def .ui-content .same-height [class*="cm"] {
 	float: none;
@@ -435,6 +436,18 @@ body, input, select, textarea, button, .ui-btn {
 @media (min-width: 768px) {
 	.def .ui-content .same-height [class*="cm"] {
 		display: table-cell;
+	}
+	.def .ui-content .order.odd-even .item:nth-child(odd) .row > [class*="cm"]:first-child {
+		width: 60%;
+	}
+	.def .ui-content .order.odd-even .item:nth-child(odd) .row > [class*="cm"]:last-child {
+		width: 40%;
+	}
+	.def .ui-content .order.odd-even .item:nth-child(even) .row > [class*="cm"]:first-child {
+		width: 40%;
+	}
+	.def .ui-content .order.odd-even .item:nth-child(even) .row > [class*="cm"]:last-child {
+		width: 60%;
 	}
 }
 
@@ -821,9 +834,18 @@ body, input, select, textarea, button, .ui-btn {
 .def .ui-content .order.ordered.mini .gap-round {
 	padding: 10px;
 	display: block;
+	color: inherit;
+	text-decoration: none;
 }
 .def .ui-content .order.ordered.mini .gap-round img {
 	border-radius: 5px;
+}
+.def .ui-content .order.ordered.mini .gap-round p {
+	text-align: center;
+	margin-top: 8px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 .def .ui-content .card .a-plane {
 	text-decoration: none;
