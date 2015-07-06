@@ -1064,6 +1064,9 @@ body, input, select, textarea, button, .ui-btn {
 .def > .ui-header .desktop .main .bar > a img {
 	opacity: 0.7;
 }
+.def > .ui-header .desktop .main .bar > a img.logged {
+	opacity: 1;
+}
 .def > .ui-header .desktop .ui-filterable {
 	margin: 0;
 }
@@ -1203,4 +1206,90 @@ body, input, select, textarea, button, .ui-btn {
 }
 /* Paveels Colours */
 /* C0D531, DCE372, FDD356, BC833A, AB6B28, 74401A */
-/* Contek - http://pixelarity.com/items/demos/threshold/red
+/* Contek - http://pixelarity.com/items/demos/threshold/red */
+
+.def .ui-popup.ui-body-inherit,
+.def .ui-popup.ui-body-b {
+ 	border-width: 0;
+}
+.def .ui-content .prf .main {
+	margin: 0 8px 20px;
+	border: 1px solid #DDDDDD;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.def .ui-content .prf .images {
+	position: relative;
+}
+.def .ui-content .prf .images img {
+	vertical-align: middle;
+}
+.def .ui-content .prf .images > img {
+	max-width: 100%;
+}
+.def .ui-content .prf .images .photo {
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	border-radius: 8px;
+	overflow: hidden;
+	width: 75px;
+	max-height: 75px;
+
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	bottom: -36px;
+}
+.def .ui-content .prf .images .photo a {
+	display: block;
+}
+.def .ui-content .prf .images .photo img {
+	width: 100%;
+	min-height: 75px;
+}
+@media screen and (min-width: 480px) {
+	.def .ui-content .prf .images .photo {
+		width: 120px;
+		max-height: 120px;
+		bottom: -56px;
+	}
+	.def .ui-content .prf .images .photo img {
+		width: 120px;
+		min-height: 120px;
+	}
+}
+
+.def .ui-content .prf .basic {
+	padding: 40px 20px 20px;
+	background-color: #FFFFFF;
+}
+.def .ui-content .prf .basic h3,
+.def .ui-content .prf .basic h4,
+.def .ui-content .prf .basic p {
+	margin-top: 0;
+	margin-bottom: 4px;
+}
+.def .ui-content .prf .basic h3,
+.def .ui-content .prf .basic h4 {
+	text-align: center;
+}
+.def .ui-content .prf .basic h4 {
+	margin-bottom: 20px;
+	color: #777777;
+}
+.def .ui-content .prf .basic .txt-img {
+	line-height: 14px;
+}
+.def .ui-content .prf .basic .txt-img > img {
+	margin: 0 4px;
+	max-width: 14px;
+	max-height: 14px;
+	vertical-align: middle;
+	opacity: 0.75;
+}
+@media screen and (min-width: 480px) {
+	.def .ui-content .prf .basic {
+		padding-top: 60px;
+	}
+}
