@@ -89,73 +89,83 @@ function callApi(apiName){
 
 function fillResultToHtml(apiName){
 	
+	//FIXME not all fields are needed
 	var field_name 		=  api_params[apiName]['params_out']['field_name'];
 	var field_type 		=  api_params[apiName]['params_out']['field_type'];
 	var field_parent 	=  api_params[apiName]['params_out']['field_parent'];
 	var field_key 		=  api_params[apiName]['params_out']['field_key'];
 	var field_data 		= api_params[apiName]['params_out']['field_data'];
 	
-	if(field_type == "Entity"){
-
-	}; // end if Entity
 	
-	if(field_type="EntityList"){
+	var $apiElements = $('#'+wp.pageId).find('[data-api-name="'+apiName+'"]');
+
+	var indexElement = 0;
+	
+	$($apiElements).each(function(){
+		var $thisApiElement = $(this);
+		var $apiLoops = $thisApiElement.find('[data-api-loop]');
 		
-		var $apiElements = $('#'+wp.pageId).find('[data-api-name="'+apiName+'"]');
+		var indexLoop = 0;
+		$($apiLoops).each(function(){
+			$thisApiLoop = $(this);
+			var apiLoop = $thisApiLoop.data('api-loop');
+			
+			if(apiLoop == "one"){
+			
+			};// end apiShow == one
+			
+			if(apiLoop == "list"){
+				var $apiRecords = $thisApiLoop.find('[data-api-record="record"]');
+				var indexApiRecord = 0;
+				
+				$($apiRecords).each(function(){
+					$thisApiRecord = $(this);
+					for (var indexRecord=0; indexRecord < field_data.length; indexRecord++){
+					
+						var $apiFields = $thisApiRecord.find('[data-api-field]');
+						
+						$($apiFields).each(function(){
+							var $thisApiField = $(this);
+							var fieldNameInElement = $thisApiField.data('api-field');
+							
+							if($thisApiField.prop("tagName") == "IMG"){
+								$thisApiField.attr("src", field_data[indexRecord][fieldNameInElement]);
+							}
+							else if($thisApiField.prop("tagName") == "A"){	
+								var hrefNew = $thisApiField.data('link-url')+"?";
+								var fieldLinks = fieldNameInElement.split(',');
+								
+								var indexFieldLink = 0;
+								while(indexFieldLink < fieldLinks.length){
+									var fieldLinkName = fieldLinks[indexFieldLink];
+									hrefNew = hrefNew+fieldLinkName+"="+field_data[indexRecord][fieldLinkName]+"&";
+									indexFieldLink++;
+								}// end while indexFieldLink
+								hrefNew = hrefNew.substring(0, (hrefNew.length-1) );
+								$thisApiField.attr("href", hrefNew);
+							}else{
+								$thisApiField.text(field_data[indexRecord][fieldNameInElement]);
+							} //end else if
+						});// end apiField.each
+						
+						$thisApiLoop.append($thisApiRecord.clone().attr('id',apiName+'_'+indexElement+'_'+indexApiRecord+'_'+indexRecord));
 
-		var indexElement = 0;
+					};// end for indexRecord
+					$thisApiRecord.first().remove();		
+					
+					indexApiRecord++;
+				});// end apiRecords.each
+			};// end apiLoop == list
+			
+			if(apiLoop == "array"){
+				
+			};// end apiLoop == array
+			
+			indexLoop++;
+		});// end apiLoop.each
 		
-		$($apiElements).each(function(){
-			var $this = $(this);
-			
-			var $apiRecords = $this.find('[data-api-record="list"]');
-			var indexApiRecord = 0;
-			
-			$($apiRecords).each(function(){
-				$this = $(this);
-				for (var indexRecord=0; indexRecord < field_data.length; indexRecord++){
-				
-					var $apiFields = $this.find('[data-api-field]');
-					
-					$($apiFields).each(function(){
-						var $this = $(this);
-						var fieldNameInElement = $this.data('api-field');
-						
-						console.log("fieldNameInElement: "+fieldNameInElement);
-						
-						if($this.prop("tagName") == "IMG"){
-							$this.attr("src", field_data[indexRecord][fieldNameInElement]);
-						}
-						else if($this.prop("tagName") == "A"){	
-							var hrefNew = $this.data('link-url')+"?";
-							var fieldLinks = fieldNameInElement.split(',');
-							
-							var indexFieldLink = 0;
-							while(indexFieldLink < fieldLinks.length){
-								var fieldLinkName = fieldLinks[indexFieldLink];
-								hrefNew = hrefNew+fieldLinkName+"="+field_data[indexRecord][fieldLinkName]+"&";
-								indexFieldLink++;
-							}// end while indexFieldLink
-							hrefNew = hrefNew.substring(0, (hrefNew.length-1) );
-							
-							$this.attr("href", hrefNew);
-							// $this.text(field_data[fieldNameInElement]); if the a href needs text, it must use separate tag with class item_record
-						}else{
-							$this.text(field_data[indexRecord][fieldNameInElement]);
-						} //end else if
-					});// end apiField.each
-					
-					$this.parent().append($this.clone().attr('id',apiName+'_'+indexElement+'_'+indexApiRecord+'_'+indexRecord));
-
-				};// end for indexRecord
-				$this.first().remove();		
-				
-				indexApiRecord++;
-			});// end apiRecords.each
-
-			indexElement++;
-		});// end apiElement.each	
-	}; // end if EntityList
+		indexElement++;
+	});// end apiElements.each
 
 }// end fillResultToHtml
 
