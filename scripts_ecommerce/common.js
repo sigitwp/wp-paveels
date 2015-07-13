@@ -158,6 +158,142 @@ function fillResultToHtml(apiName){
 			};// end apiLoop == list
 			
 			if(apiLoop == "array"){
+				var $apiParentRecords = $thisApiLoop.find('[data-api-record="parent"]');
+				var indexApiParentRecord = 0;
+
+				var parent_data = $.grep(field_data, function(e){
+					return e[field_parent] == null;
+				});
+				
+				$($apiParentRecords).each(function(){
+					var $thisApiParentRecord = $(this);
+					
+					var $thisApiParentRecordClone = $thisApiParentRecord.clone();
+
+					for (var indexParentRecord=0; indexParentRecord < parent_data.length; indexParentRecord++){
+						console.log("parent: "+parent_data[indexParentRecord][field_key]);
+						
+						var $apiParentFields = $thisApiParentRecord.find('[data-api-field]');
+						$($apiParentFields).each(function(){
+							var $thisApiParentField = $(this);
+							var fieldNameInElement = $thisApiParentField.data('api-field');
+							if($thisApiParentField.prop("tagName") == "IMG"){
+								$thisApiParentField.attr("src", parent_data[indexParentRecord][fieldNameInElement]);
+							}
+							else if($thisApiParentField.prop("tagName") == "A"){	
+								var hrefNew = $thisApiParentField.data('link-url')+"?";
+								var fieldLinks = fieldNameInElement.split(',');
+								
+								var indexFieldLink = 0;
+								while(indexFieldLink < fieldLinks.length){
+									var fieldLinkName = fieldLinks[indexFieldLink];
+									hrefNew = hrefNew+fieldLinkName+"="+parent_data[indexParentRecord][fieldLinkName]+"&";
+									indexFieldLink++;
+								}// end while indexFieldLink
+								hrefNew = hrefNew.substring(0, (hrefNew.length-1) );
+								$thisApiParentField.attr("href", hrefNew);
+							}else{
+								$thisApiParentField.text(parent_data[indexParentRecord][fieldNameInElement]);
+							} //end else if
+							console.log("thisApiParentField: "+fieldNameInElement);
+						})// end apiParentFields.each
+						
+						$thisApiParentRecord.attr('data-api-parent',parent_data[indexParentRecord][field_key]);
+
+												
+						$thisApiLoop.append($thisApiParentRecord.clone().attr('id',apiName+'_'+indexElement+'_'+indexApiParentRecord+'_'+indexParentRecord));
+						
+						
+					}// end for indexParentRecord
+					
+					$thisApiParentRecord.first().remove();
+					
+					// $thisApiLoop.append($thisApiParentRecordClone);
+					
+					indexApiParentRecord++;
+				});// end apiParentRecords.each
+				
+				console.log("now working the chilren ***********************");
+				for(var indexParentRecord=0; indexParentRecord < parent_data.length; indexParentRecord++){
+					var parentId = parent_data[indexParentRecord][field_key];
+					console.log("parentId: "+ parentId);
+					
+					var $parentElements = $thisApiLoop.find('[data-api-parent="'+parentId+'"]');
+					
+					$($parentElements).each(function(){
+						var $thisParentElement = $(this);
+						
+						var $thisChildrenArray = $thisParentElement.find('[data-api-loop="children-array"]');
+						
+						$($thisChildrenArray).each(function(){
+							
+							var $thisApiChildrenRecord = $thisChildrenArray.find('[data-api-record="children"]');
+							// var $thisApiChildrenRecordClone = $thisApiChildrenRecord.clone();
+							
+							$($thisApiChildrenRecord).each(function(){
+								var children_data = $.grep(field_data, function(e){
+									return e[field_parent] == parent_data[indexParentRecord][field_key];
+								});
+								
+								console.log("children_data.length: "+children_data.length);
+								
+								for(var indexChildrenRecord=0; indexChildrenRecord < children_data.length; indexChildrenRecord++){
+									console.log("childrenId: "+children_data[indexChildrenRecord][field_key]);
+									
+									var $apiChildrenFields = $thisApiChildrenRecord.find('[data-api-field]');
+									$($apiChildrenFields).each(function(){
+										var $thisApiChildrenField = $(this);
+										var fieldNameInElement = $thisApiChildrenField.data('api-field');
+										if($thisApiChildrenField.prop("tagName") == "IMG"){
+											$thisApiChildrenField.attr("src", children_data[indexChildrenRecord][fieldNameInElement]);
+										}
+										else if($thisApiChildrenField.prop("tagName") == "A"){	
+											var hrefNew = $thisApiChildrenField.data('link-url')+"?";
+											var fieldLinks = fieldNameInElement.split(',');
+											
+											var indexFieldLink = 0;
+											while(indexFieldLink < fieldLinks.length){
+												var fieldLinkName = fieldLinks[indexFieldLink];
+												hrefNew = hrefNew+fieldLinkName+"="+children_data[indexChildrenRecord][fieldLinkName]+"&";
+												indexFieldLink++;
+											}// end while indexFieldLink
+											hrefNew = hrefNew.substring(0, (hrefNew.length-1) );
+											$thisApiChildrenField.attr("href", hrefNew);
+										}else{
+											$thisApiChildrenField.text(children_data[indexChildrenRecord][fieldNameInElement]);
+										} //end else if
+										console.log("thisApiChildrenField: "+fieldNameInElement);
+									})// end apiChildrenFields.each
+									
+									$thisChildrenArray.append($thisApiChildrenRecord.clone().attr('id',apiName+'_'+indexElement+'_'+'_'+indexChildrenRecord));
+									
+								}// end for indexChildrenRecord
+								
+								$thisChildrenArray.children().first().remove();
+
+							});// end thisApiChildrenRecord.each
+
+							
+							
+							
+							
+							
+							
+							
+						})// end thisChildrenArray.each
+						
+						
+						
+						
+					});// end parentElement.each
+					
+				}// end for indexParentRecord
+				
+				
+
+				
+				
+				
 				
 			};// end apiLoop == array
 			
