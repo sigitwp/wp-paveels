@@ -1,10 +1,13 @@
-
 var wp = {
 	api: 'https://localhost:8443/json/',
 	uri_scripts: 'scripts_ecommerce/',
 	uri_styles: 'styles_ecommerce/',
-	ver: '800-000-1616.95.20150622'
-}
+	ver: '800-000-1616.95.20150622',
+	bizId: 'paveels',
+	viewSize: -1,
+	viewIndex: -1,
+	pageId: ''
+};
 
 var dev = {
 	log: {
@@ -12,7 +15,7 @@ var dev = {
 		info: 'background-color: #DDDDDD; color: #0064FF',
 		success: 'background-color: #DDDDDD; color: #00CC09'
 	}
-}// end var dev
+};// end var dev
 
 console.log('common.js called...');
 
@@ -38,142 +41,161 @@ if (Modernizr.localstorage) {
 	//FIXME seharusnya ngapain gitu, biar gak bisa buka yang selanjutnya, karena ini common js
 }// end if Modernizr.localStorage
 	
+function getParameter(name) {
+	var name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"),
+		regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
-$( document ).on( "pagecontainershow", function( event, ui ) {
+function callApi(apiName){	
+	console.log('callApi called...');
 
-	//FIXME TESTING KALAU SUDAH DI WEB SERVER, apakah masih bener perhitungan indexnya
-	// FIXME sementara tidak dipakai karena jquerymobile gak load common.js lagi kalau link diclick
-	var pathname = window.location.pathname
-	// alert("window.location.pathname: "+pathname);
-	var titikHtml = pathname.lastIndexOf(".html");
-	// alert("titikHtml: "+titikHtml);
-	var garisMiring = pathname.lastIndexOf("/");
-	
-	pathname = pathname.substring(garisMiring+1, titikHtml);
-	// alert("pathname now: "+pathname);
-	
-	loadJsCssFile(wp.uri_scripts+pathname+".js", "js");
+	var api_params_in = api_params[apiName]["params_in"];
 
-});
-
-
-function parseApi(){	
-	console.log('parseApi called...');
-	var apiList = $('.api-name');
-	var indexApi = 0;
-
-	while (indexApi<apiList.length)
-	{
-		var api = apiList[indexApi];		
+	var parameters = {};
+	parameters.pdid = localStorage['pdid'];
+	parameters.drid = localStorage['drid'];
+	parameters.dtk = localStorage['dtk'];
 		
-		//FIXME di sini panggil ajax sesuai nama api.id untuk diisi ke JSON
-		//sementara
-
-		var apiItemName = '#'+api.id+'_item';			
-		var apiItem = $(apiItemName);
-
-		var dataJson = 7; //FIXME harusnya sesuai dengan jumlah data JSON yang dijawab.
-		var indexApiRecord = 0;
+	var index_params_in = 0;
 		
-		if(dataJson > 0){
-			while(indexApiRecord < dataJson){
-				apiItem.parent().append(apiItem.clone().attr("id", api.id+"_item_"+indexApiRecord));
+	while(index_params_in < api_params_in.length){
+		var api_params_in_Name = api_params_in[index_params_in];
+		var valueFromRequest = getParameter(api_params_in_Name);
+		
+		if(valueFromRequest == "" ){
+			parameters[api_params_in_Name] = wp[api_params_in_Name];
+		}else{
+			parameters[api_params_in_Name] = valueFromRequest;
+		}
+		index_params_in++;
+	}// end while setting field parameters
+
+	getData(apiName, parameters, function(data){
+
+		var field_name = api_params[data.apiName]['params_out']['field_name'];
+		api_params[data.apiName]['params_out']['field_data'] = data[field_name];
+		
+		if(data[field_name].length < 1){
+			$('[data-api-name="'+apiName+'"]').remove();
+		}else{
+			fillResultToHtml(data.apiName);
+		}
+	});// end getData
+		
+	console.log('callApi finished...');
+}// end callApi
+
+function fillResultToHtml(apiName){
+	
+	var field_name 		=  api_params[apiName]['params_out']['field_name'];
+	var field_type 		=  api_params[apiName]['params_out']['field_type'];
+	var field_parent 	=  api_params[apiName]['params_out']['field_parent'];
+	var field_key 		=  api_params[apiName]['params_out']['field_key'];
+	var field_data 		= api_params[apiName]['params_out']['field_data'];
+	
+	if(field_type == "Entity"){
+
+	}; // end if Entity
+	
+	if(field_type="EntityList"){
+		
+		var $apiElements = $('#'+wp.pageId).find('[data-api-name="'+apiName+'"]');
+
+		var indexElement = 0;
+		
+		$($apiElements).each(function(){
+			var $this = $(this);
+			
+			var $apiRecords = $this.find('[data-api-record="list"]');
+			var indexApiRecord = 0;
+			
+			$($apiRecords).each(function(){
+				$this = $(this);
+				for (var indexRecord=0; indexRecord < field_data.length; indexRecord++){
 				
-				var apiFields = $("#"+api.id+"_item_"+indexApiRecord).find('.api-field');
-				var indexApiField = 0;
-				while(indexApiField < apiFields.length){
-					//FIXME di sini isi sesuai data dari JSON
+					var $apiFields = $this.find('[data-api-field]');
 					
-					$(apiFields[indexApiField]).attr("id", apiFields[indexApiField].id+"_"+indexApiRecord);
+					$($apiFields).each(function(){
+						var $this = $(this);
+						var fieldNameInElement = $this.data('api-field');
+						
+						console.log("fieldNameInElement: "+fieldNameInElement);
+						
+						if($this.prop("tagName") == "IMG"){
+							$this.attr("src", field_data[indexRecord][fieldNameInElement]);
+						}
+						else if($this.prop("tagName") == "A"){	
+							var hrefNew = $this.data('link-url')+"?";
+							var fieldLinks = fieldNameInElement.split(',');
+							
+							var indexFieldLink = 0;
+							while(indexFieldLink < fieldLinks.length){
+								var fieldLinkName = fieldLinks[indexFieldLink];
+								hrefNew = hrefNew+fieldLinkName+"="+field_data[indexRecord][fieldLinkName]+"&";
+								indexFieldLink++;
+							}// end while indexFieldLink
+							hrefNew = hrefNew.substring(0, (hrefNew.length-1) );
+							
+							$this.attr("href", hrefNew);
+							// $this.text(field_data[fieldNameInElement]); if the a href needs text, it must use separate tag with class item_record
+						}else{
+							$this.text(field_data[indexRecord][fieldNameInElement]);
+						} //end else if
+					});// end apiField.each
+					
+					$this.parent().append($this.clone().attr('id',apiName+'_'+indexElement+'_'+indexApiRecord+'_'+indexRecord));
 
-					$(apiFields[indexApiField]).text("yuhuuu_"+indexApiRecord); //FIXME isi sesuai nama field dengan data JSON
-					indexApiField++;
-				}// end isi Field
+				};// end for indexRecord
+				$this.first().remove();		
 				
 				indexApiRecord++;
-			}// end while sesuai jumlah record
-		}else{
-			var apiTitleName = '#'+api.id+'_title';
-			var apiTitle = $(apiTitleName);
-			apiTitle.text(apiTitle.text()+" - no data");
-		}
-		
-		$(apiItemName).css("display","none");
-		
-		indexApi++;
-	}// end while sesuai jumlah api yang harus dipanggil ke belakang
-	console.log('parseApi finished...');
-}// end parseApi
+			});// end apiRecords.each
 
-function getData(url, parameters, callback) {
+			indexElement++;
+		});// end apiElement.each	
+	}; // end if EntityList
+
+}// end fillResultToHtml
+
+
+
+
+function getData(apiName, parameters, callback) {
 	var request = $.ajax({
-		url: wp.api + url,
+		type: "POST",
+		url: wp.api + apiName,
 		data: parameters,
 		dataType: 'json'
 	});
 
 	request.done(function(data, status, xhr) {
+		console.log("data.wpCode: "+data.wpCode);
+		data.apiName = apiName;
+
 		if (data.wpCode == 999) {
 			if (typeof(callback) == "function") {
 				callback(data);
 			}
 		} else {
-			// console.log(data, status, xhr);
-			console.log('%c Error when requesting to "' + url + '". ' + 'Please check your parameters or connection. ', dev.log.error);
-			alert(data.wpCode+": "+data.wpMessage)
+			console.log('%c Error when requesting to "' + apiName+ '". ' + 'Please check your parameters or connection. ', dev.log.error);
+			
+			//FIXME keluarin notifikasi kalau ada error dari belakang
+			console.log("apiName: "+apiName+", "+data.wpCode+": "+data.wpMessage);
+			
+			$('[data-api-name="'+apiName+'"]').remove();
 		}// end else if 999
 	})// end request.done
 
 	request.fail(function(xhr, status, error) {
 		// console.log(xhr, status, error);
-		console.log('%c Error when requesting to "' + url + '" ', dev.log.error);
+		console.log('%c Error when requesting to "' + apiName + '" ', dev.log.error);
+		
+		$('[data-api-name="'+apiName+'"]').remove();
+		// FIXME hilangin aja pake remove
 	})
 }// end getData
-
-
-/*
- * example of using
- * loadJsCssFile("myscript.js", "js") //dynamically load and add this .js file
- * loadJsCssFile("javascript.php", "js") //dynamically load "javascript.php" as a JavaScript file
- * loadJsCssFile("mystyle.css", "css") ////dynamically load and add this .css file
-*/
-function loadJsCssFile(filename, filetype){
-    if (filetype=="js"){ //if filename is a external JavaScript file
-        var fileref=document.createElement('script')
-        fileref.setAttribute("type","text/javascript")
-        fileref.setAttribute("src", filename)
-    }
-    else if (filetype=="css"){ //if filename is an external CSS file
-        var fileref=document.createElement("link")
-        fileref.setAttribute("rel", "stylesheet")
-        fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", filename)
-    }
-    if (typeof fileref!="undefined")
-        document.getElementsByTagName("head")[0].appendChild(fileref)
-}// end loadJsCssFile
-
-
-
-function setHeader(mustLogin){
-	// FIXME seharusnya di sini bisa set header beneran, karena kalau pake jQuery mobile toh walaupun kirim header, headernya dibuang.
-	// jadi setiap html, cuma perlu contentnya doang.
-	// header dan footer bisa ambil waktu diperluin aja
-	
-	if(mustLogin == true){
-		var User = localStorage["User"];
-
-		if(User == null){
-			window.location.href = "signin.html";
-		}else{
-			// we dont ask for User data to backend anymore, because if something wrong, preprocessor in backend should already handle.
-			User = JSON.parse(User);
-			alert(User.profileImgUrl);
-			$("#profileImgUrl").attr("src",User.profileImgUrl);
-		}// end User == null
-	}// end if mustLogin
-	
-}// end setHeader
 
 function checkDevice(){
 	var userAgent = navigator.userAgent.toLowerCase();
@@ -200,6 +222,7 @@ function registerNewDevice(ver,drid){
 	var jawaban = false;
 	
 	$.ajax({
+		async: false,
 		url: wp.api+"registerNewDevice",
 		data: { 
 			ver: ver,
@@ -237,4 +260,18 @@ function registerNewDevice(ver,drid){
 		}
 	});
 }; // end registerNewDevice
+
+
+$( document ).on( "pagecontainershow", function( event, ui ) {
+	wp.pageId = $('body').pagecontainer('getActivePage').prop('id'); 
+	
+	var $pageNow = $('#'+wp.pageId);
+	var apis = $pageNow.data('api-name');
+	var apiNames = apis.split(',');
+	
+	for (var indexApiName = 0; indexApiName < apiNames.length; indexApiName++) {
+	   var apiName = $.trim(apiNames[indexApiName]);
+	   callApi(apiName);
+	}// end for apiNames
+}); // end document on pagecontainershow
 

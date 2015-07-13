@@ -1,101 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Paveels</title>
-	<link rel="favicon" href="images/favicon.ico">
-	<link rel="stylesheet" href="styles/jquery.mobile.min.css">
-	<link rel="stylesheet" href="styles/wp.css">
+	<link rel="favicon" href="images/favicon.ico" />
+	<link rel="stylesheet" href="styles/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="styles/wp.css" />
 	<script src="scripts/jquery.min.js"></script>
 	<script src="scripts/jquery.mobile.min.js"></script>
+	<script src="scripts/modernizr-latest.js"></script>
+	<script src="scripts_ecommerce/api.js"></script>
 	<script src="scripts_ecommerce/common.js"></script>
-	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="shortcut icon" href="images/favicon.ico" />
 </head>
 <body>
-	<div data-role="page" id="page_index" class="def">
+	<div data-role="page" id="page_index" class="def" data-api-name="ecmcGetBizBrandList, ecmcGetBizTopProductList">
 		<div data-role="panel" id="panel-menu" class="panel-menu">
 			<ul data-role="listview" class="ui-alt-icon ui-nodisc-icon">
 				<li><a>Home</a></li>
 				<li><a href="cart.html">Cart</a></li>
 				<li><a href="wishlist.html">Wishlist</a></li>
 				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>Bathing</h2>
+					<h2>Kategori Bapak</h2>
 					<ul data-role="listview">
-						<li><a href="products.html">Bath Accessory</a></li>
-						<li><a href="products.html">Bath Toy</a></li>
-						<li><a href="products.html">Grooming Set</a></li>
-						<li><a href="products.html">Washcloth</a></li>
-					</ul>
-				</li>
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>Eating</h2>
-					<ul data-role="listview">
-						<li><a href="products.html">Bottle</a></li>
-						<li><a href="products.html">Bottle Accessory</a></li>
-						<li><a href="products.html">Bowl</a></li>
-						<li><a href="products.html">Container</a></li>
-						<li><a href="products.html">Feeder</a></li>
-						<li><a href="products.html">Maker</a></li>
-						<li><a href="products.html">Meal Set</a></li>
-						<li><a href="products.html">Plate</a></li>
-						<li><a href="products.html">Snack Bag</a></li>
-						<li><a href="products.html">Utensil</a></li>
-					</ul>
-				</li>
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>Outing</h2>
-					<ul data-role="listview">
-						<li><a href="products.html">Baby Carrier</a></li>
-						<li><a href="products.html">Backpack</a></li>
-						<li><a href="products.html">Car Accessory</a></li>
-						<li><a href="products.html">Changing Pad</a></li>
-						<li><a href="products.html">Diaper Bag</a></li>
-						<li><a href="products.html">Lunch Box</a></li>
-						<li><a href="products.html">Stroller Accessory</a></li>
-						<li><a href="products.html">Stroller Seat</a></li>
-						<li><a href="products.html">Travel Accessory</a></li>
-					</ul>
-				</li>
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>Playing</h2>
-					<ul data-role="listview">
-						<li><a href="products.html">Puzzle</a></li>
-						<li><a href="products.html">Soft Toy</a></li>
-						<li><a href="products.html">Diaper Bag</a></li>
-						<li><a href="products.html">Teether</a></li>
-						<li><a href="products.html">Wooden Toy</a></li>
-					</ul>
-				</li>
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>Sleeping</h2>
-					<ul data-role="listview">
-						<li><a href="products.html">Blanket</a></li>
-						<li><a href="products.html">Comforter</a></li>
-						<li><a href="products.html">Pillow</a></li>
-					</ul>
-				</li>
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>Health</h2>
-					<ul data-role="listview">
-						<li><a href="products.html">Body Care</a></li>
-						<li><a href="products.html">Health Care</a></li>
-						<li><a href="products.html">Oral Care</a></li>
-					</ul>
-				</li>
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>Others</h2>
-					<ul data-role="listview">
-						<li><a href="products.html">Car</a></li>
-						<li><a href="products.html">Safety</a></li>
-						<li><a href="products.html">Walker</a></li>
-					</ul>
-				</li>
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>Moms</h2>
-					<ul data-role="listview">
-						<li><a href="products.html">Corset</a></li>
-						<li><a href="products.html">Maternity</a></li>
+						<li><a href="products.html">Kategori Anak</a></li>
 					</ul>
 				</li>
 				<li><a href="brands.html">Brands</a></li>
@@ -138,82 +67,9 @@
 								<a>Home</a>
 							</li>
 							<li>
-								<a>Bathing</a>
+								<a>Kategori Bapak</a>
 								<ul>
-									<li><a href="products.html">Bath Accessory</a></li>
-									<li><a href="products.html">Bath Toy</a></li>
-									<li><a href="products.html">Grooming Set</a></li>
-									<li><a href="products.html">Washcloth</a></li>
-								</ul>
-							</li>
-							<li>
-								<a>Eating</a>
-								<ul>
-									<li><a href="products.html">Bottle</a></li>
-									<li><a href="products.html">Bottle Accessory</a></li>
-									<li><a href="products.html">Bowl</a></li>
-									<li><a href="products.html">Container</a></li>
-									<li><a href="products.html">Feeder</a></li>
-									<li><a href="products.html">Maker</a></li>
-									<li><a href="products.html">Meal Set</a></li>
-									<li><a href="products.html">Plate</a></li>
-									<li><a href="products.html">Snack Bag</a></li>
-									<li><a href="products.html">Utensil</a></li>
-								</ul>
-							</li>
-							<li>
-								<a>Outing</a>
-								<ul>
-									<li><a href="products.html">Baby Carrier</a></li>
-									<li><a href="products.html">Backpack</a></li>
-									<li><a href="products.html">Car Accessory</a></li>
-									<li><a href="products.html">Changing Pad</a></li>
-									<li><a href="products.html">Diaper Bag</a></li>
-									<li><a href="products.html">Lunch Box</a></li>
-									<li><a href="products.html">Stroller Accessory</a></li>
-									<li><a href="products.html">Stroller Seat</a></li>
-									<li><a href="products.html">Travel Accessory</a></li>
-								</ul>
-							</li>
-							<li>
-								<a>Playing</a>
-								<ul>
-									<li><a href="products.html">Puzzle</a></li>
-									<li><a href="products.html">Soft Toy</a></li>
-									<li><a href="products.html">Diaper Bag</a></li>
-									<li><a href="products.html">Teether</a></li>
-									<li><a href="products.html">Wooden Toy</a></li>
-								</ul>
-							</li>
-							<li>
-								<a>Sleeping</a>
-								<ul>
-									<li><a href="products.html">Blanket</a></li>
-									<li><a href="products.html">Comforter</a></li>
-									<li><a href="products.html">Pillow</a></li>
-								</ul>
-							</li>
-							<li>
-								<a>Health</a>
-								<ul>
-									<li><a href="products.html">Body Care</a></li>
-									<li><a href="products.html">Health Care</a></li>
-									<li><a href="products.html">Oral Care</a></li>
-								</ul>
-							</li>
-							<li>
-								<a>Others</a>
-								<ul>
-									<li><a href="products.html">Car</a></li>
-									<li><a href="products.html">Safety</a></li>
-									<li><a href="products.html">Walker</a></li>
-								</ul>
-							</li>
-							<li>
-								<a>Moms</a>
-								<ul>
-									<li><a href="products.html">Corset</a></li>
-									<li><a href="products.html">Maternity</a></li>
+									<li><a href="products.html">Kategori Anak</a></li>
 								</ul>
 							</li>
 							<li>
@@ -225,38 +81,9 @@
 			</div>
 		</div>
 		<div role="main" class="ui-content ui-content-fluid">
-			<div class="container-fluid">
-				<div class="section">
-					<div class="notif">
-						<ul data-role="listview" data-icon="false">
-							<li class="item">
-								<a href="profile.html" class="warning">
-									<div class="wrapper">
-										<p>Payment Confirmation for Order Number 07345719572</p>
-										<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-del"></button>
-									</div>
-								</a>
-							</li>
-							<li class="item">
-								<a href="chat.html" class="info">
-									<div class="wrapper">
-										<p>Message from Paveels 3 hours ago</p>
-										<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-del"></button>
-									</div>
-								</a>
-							</li>
-							<li class="item">
-								<a href="profile.html" class="success">
-									<div class="wrapper">
-										<p>Thank You Vitri Zulianti, You Have Sucessfully Confirmed Your Email Address</p>
-										<button class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all btn-del"></button>
-									</div>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+		
+		<!-- FIXME di sini seharusnya hub/notification, sementara diremove biar gak pusing -->
+		
 			<div class="container">
 				<div class="section">
 					<ul class="order">
@@ -411,224 +238,16 @@
 						</li>
 					</ul>
 				</div>
-				<div class="section">
+				
+				<div class="section" data-api-name="ecmcGetBizBrandList">
 					<h2 class="yellow-block">Top Brands</h2>
 					<ul class="order ordered mini">
-						<li class="item">
+						<li class="item" data-api-record="list">
 							<div class="ui-view">
 								<div class="ui-corner-all">
 									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/1.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/3.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/4.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/9.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/10.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/11.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/20.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/22.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/24.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/32.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/33.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/35.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/37.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/38.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/41.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/45.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/47.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/49.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/50.jpg" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="item">
-							<div class="ui-view">
-								<div class="ui-corner-all">
-									<div class="ui-body ui-body-a">
-										<a href="brand.html" class="card gap-round">
-											<img src="images/s3/brand/54.jpg" alt="">
+										<a href="" class="card gap-round" data-link-url="brand.html" data-api-field="brandId" >
+											<img src="" alt="" data-api-field="brandImgUrl">
 										</a>
 									</div>
 								</div>
@@ -636,7 +255,9 @@
 						</li>
 					</ul>
 				</div>
+				
 			</div>
+			
 			<div class="container-fluid">
 				<div class="section">
 					<div class="social">
@@ -659,6 +280,7 @@
 						</ul>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
