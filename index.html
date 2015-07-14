@@ -15,49 +15,44 @@
 	<link rel="shortcut icon" href="images/favicon.ico" />
 </head>
 <body>
-<!--  ecmcGetBizBrandList, ecmcGetBizTopProductList -->
-	<div data-role="page" id="page_index" class="def" data-api-name="ecmcGetBizCategoryProductList">
+<!--  , ecmcGetBizTopProductList ecmcGetBizLinkUrlList -->
+	<div data-role="page" id="page_index" class="def" data-api-name="ecmcGetBizTopProductList, ecmcGetBizLinkUrlList, ecmcGetBizBrandList, ecmcGetBizHubList">
 		<div data-role="panel" id="panel-menu" class="panel-menu">
 			<ul data-role="listview" class="ui-alt-icon ui-nodisc-icon">
-				<li><a>Home</a></li>
-				<li><a href="cart.html">Cart</a></li>
-				<li><a href="wishlist.html">Wishlist</a></li>
-				<li data-role="collapsible" data-iconpos="right" data-inset="false">
-					<h2>Kategori Bapak</h2>
-					<ul data-role="listview">
-						<li><a href="products.html">Kategori Anak</a></li>
-					</ul>
-				</li>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="categories.html">Categories</a></li>
 				<li><a href="brands.html">Brands</a></li>
+				<li><a href="wishlist.html">Wishlist</a></li>
+				<li><a href="cart.html">Cart</a></li>
 			</ul>
 		</div>
 		<div data-role="header" data-position="fixed">
 			<form class="ui-filterable">
-				<input data-type="search">
+				<input data-type="search" />
 			</form>
 			<a data-role="none" href="#panel-menu">
-				<img src="images/logo-paveels.png">
+				<img src="images/logo-paveels.png" />
 			</a>
 			<a data-role="none" href="profile.html">
-				<img src="images/user-grey.png">
+				<img src="images/user-grey.png" />
 			</a>
 			<div class="desktop">
 				<div class="main">
 					<a data-role="none" class="logo">
-						<img src="images/logo-paveels-rect.png">
+						<img src="images/logo-paveels-rect.png" />
 					</a>
 					<div class="bar">
 						<a data-role="none" href="profile.html">
-							<img src="images/s3/icon/user.png">
+							<img src="images/s3/icon/user.png" />
 						</a>
 						<form class="ui-filterable">
-							<input data-type="search">
+							<input data-type="search" />
 						</form>
 						<a href="cart.html">
-							<img src="images/s3/icon/paper-bag.png">
+							<img src="images/s3/icon/paper-bag.png" />
 						</a>
 						<a href="wishlist.html">
-							<img src="images/s3/icon/heart.png">
+							<img src="images/s3/icon/heart.png" />
 						</a>
 					</div>
 				</div>
@@ -65,13 +60,10 @@
 					<div class="main nav">
 						<ul>
 							<li>
-								<a>Home</a>
+								<a href="index.html">Home</a>
 							</li>
 							<li>
-								<a>Kategori Bapak</a>
-								<ul>
-									<li><a href="products.html">Kategori Anak</a></li>
-								</ul>
+								<a href="categories.html">Categories</a>
 							</li>
 							<li>
 								<a href="brands.html">Brands</a>
@@ -86,22 +78,22 @@
 		<!-- FIXME di sini seharusnya hub/notification, sementara diremove biar gak pusing -->
 		
 			<div class="container">
-				<div class="section">
-					<ul class="order">
-						<li class="item">
+				<div class="section" data-api-name="ecmcGetBizHubList">
+					<ul class="order" data-api-loop="list">
+						<li class="item" data-api-record="record">
 							<div class="ui-view">
 								<div class="ui-corner-all">
 									<div class="ui-body ui-body-a">
 										<div class="card rect">
 											<div class="row same-height">
 												<div class="cm6">
-													<img src="images/s3/banner/1.jpg" alt="Trunki Get Set. Go!">
+													<img src="" alt="" data-api-field="bizHubImgUrl" >
 												</div>
 												<div class="cm4">
 													<div class="desc">
-														<h3 class="title">Trunki Get Set. Go!</h3>
-														<p>Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream. Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream.</p>
-														<a href="promo.html" class="ui-btn ui-btn-inline ui-corner-all btn-orange">See Details</a>
+														<h3 class="title" data-api-field="bizHubTitle" ></h3>
+														<p data-api-field="description" ></p>
+														<a href="" class="ui-btn ui-btn-inline ui-corner-all btn-orange" data-api-href="hub.html" data-api-field="bizHubId" data-api-link="static">See Details</a>
 													</div>
 												</div>
 											</div>
@@ -112,10 +104,11 @@
 						</li>
 					</ul>
 				</div>
-				<div class="section">
+				
+				<div class="section" data-api-name="ecmcGetBizTopProductList">
 					<h2 class="yellow-block">Top Products</h2>
-					<ul class="order ordered">
-						<li class="item">
+					<ul class="order ordered" data-api-loop="list">
+						<li class="item" data-api-record="record">
 							<div class="ui-view">
 								<div class="ui-corner-all">
 									<div class="ui-body ui-body-a">
@@ -124,11 +117,11 @@
 												<img src="images/s3/product/big-3.jpg" alt="Moby Waterfall Bath Rinser">
 											</a>
 											<div class="desc">
-												<a href="product.html" class="a-plane">
-													<h3 class="title">Moby Waterfall Bath Rinser</h3>
+												<a href="" class="a-plane" data-api-href="product.html" data-api-field="bizProductId" data-api-link="static">
+													<h3 class="title" data-api-field="bizProductName"></h3>
 												</a>
-												<p class="price">Rp. 199.000</p>
-												<p>Interior fins that channel a steady and even flow of water to ensure quick cry-free rinses. Soft rubber lip fits snuggly to the forehead, preventing water from getting in eyes. Gentle, wide waterfall stream.</p>
+												<p class="price" data-api-field="bizProductPrice"></p>
+												<p data-api-field="description"></p>
 											</div>
 										</div>
 									</div>
@@ -146,7 +139,7 @@
 							<div class="ui-view">
 								<div class="ui-corner-all">
 									<div class="ui-body ui-body-a">
-										<a href="" class="card gap-round" data-link-url="brand.html" data-api-field="brandId" >
+										<a href="" class="card gap-round" data-api-href="brand.html" data-api-field="brandId" data-api-link="static">
 											<img src="" alt="" data-api-field="brandImgUrl">
 										</a>
 									</div>
@@ -159,44 +152,18 @@
 			</div>
 			
 			<div class="container-fluid">
-				<div class="section">
+				<div class="section" data-api-name="ecmcGetBizLinkUrlList">
 					<div class="social">
-						<ul>
-							<li>
-								<a href="http://www.facebook.com/paveels" rel="external">
-									<img src="images/icons/social/facebook-36.png">
-								</a>
-							</li>
-							<li>
-								<a href="https://instagram.com/paveels" rel="external">
-									<img src="images/icons/social/instagram-36.png">
-								</a>
-							</li>
-							<li>
-								<a href="https://twitter.com/paveels" rel="external">
-									<img src="images/icons/social/twitter-36.png">
+						<ul data-api-loop="list">
+							<li data-api-record="record">
+								<a href="" rel="external" data-api-href="partyLinkUrl" data-api-field="brandId" data-api-link="dynamic">
+									<img src="" data-api-field="partyLinkImgUrl">
 								</a>
 							</li>
 						</ul>
 					</div>
 				</div>
-				
-				
-				<div class="section" data-api-name="ecmcGetBizCategoryProductList">
-					<div>
-						<ul data-api-loop="array">
-							<li data-api-record="parent">
-								<p data-api-field="categoryName">ini bapak 1</p>
-								<ul data-api-loop="children-array">
-									<li data-api-record="children">
-										<p data-api-field="categoryName">ini anak 1 dari bapak 1</p>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</div>
-				
+								
 			</div>
 		</div>
 	</div>

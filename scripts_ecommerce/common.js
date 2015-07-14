@@ -73,7 +73,8 @@ function callApi(apiName){
 	}// end while setting field parameters
 
 	getData(apiName, parameters, function(data){
-
+		console.log('getData called: '+apiName);
+		
 		var field_name = api_params[data.apiName]['params_out']['field_name'];
 		api_params[data.apiName]['params_out']['field_data'] = data[field_name];
 		
@@ -103,6 +104,9 @@ function fillResultToHtml(apiName){
 	
 	$($apiElements).each(function(){
 		var $thisApiElement = $(this);
+		
+		// $thisApiElement.data('api-load','false');
+		
 		var $apiLoops = $thisApiElement.find('[data-api-loop]');
 		
 		var indexLoop = 0;
@@ -119,6 +123,9 @@ function fillResultToHtml(apiName){
 				var indexApiRecord = 0;
 				
 				$($apiRecords).each(function(){
+					
+					console.log('apiRecord.each');
+					
 					$thisApiRecord = $(this);
 					for (var indexRecord=0; indexRecord < field_data.length; indexRecord++){
 					
@@ -131,8 +138,18 @@ function fillResultToHtml(apiName){
 							if($thisApiField.prop("tagName") == "IMG"){
 								$thisApiField.attr("src", field_data[indexRecord][fieldNameInElement]);
 							}
-							else if($thisApiField.prop("tagName") == "A"){	
-								var hrefNew = $thisApiField.data('link-url')+"?";
+							else if($thisApiField.prop("tagName") == "A"){
+								var apiLink = $thisApiField.data('api-link');
+								var hrefNew = $thisApiField.data('api-href');
+
+								if(apiLink === "dynamic"){
+									hrefNew = field_data[indexRecord][hrefNew];
+								}
+								
+								hrefNew = hrefNew + "?";
+								
+								// var hrefNew = $thisApiField.data('api-href')+"?";
+								
 								var fieldLinks = fieldNameInElement.split(',');
 								
 								var indexFieldLink = 0;
@@ -157,7 +174,7 @@ function fillResultToHtml(apiName){
 				});// end apiRecords.each
 			};// end apiLoop == list
 			
-			if(apiLoop == "array"){
+			if(apiLoop == "parent-array"){
 				var $apiParentRecords = $thisApiLoop.find('[data-api-record="parent"]');
 				var indexApiParentRecord = 0;
 
@@ -171,7 +188,7 @@ function fillResultToHtml(apiName){
 					var $thisApiParentRecordClone = $thisApiParentRecord.clone();
 
 					for (var indexParentRecord=0; indexParentRecord < parent_data.length; indexParentRecord++){
-						console.log("parent: "+parent_data[indexParentRecord][field_key]);
+						// console.log("parent: "+parent_data[indexParentRecord][field_key]);
 						
 						var $apiParentFields = $thisApiParentRecord.find('[data-api-field]');
 						$($apiParentFields).each(function(){
@@ -180,8 +197,18 @@ function fillResultToHtml(apiName){
 							if($thisApiParentField.prop("tagName") == "IMG"){
 								$thisApiParentField.attr("src", parent_data[indexParentRecord][fieldNameInElement]);
 							}
-							else if($thisApiParentField.prop("tagName") == "A"){	
-								var hrefNew = $thisApiParentField.data('link-url')+"?";
+							else if($thisApiParentField.prop("tagName") == "A"){								
+								var apiLink = $thisApiParentField.data('api-link');
+								var hrefNew = $thisApiParentField.data('api-href');
+
+								if(apiLink === "dynamic"){
+									hrefNew = parent_data[indexParentRecord][hrefNew];
+								}
+								
+								hrefNew = hrefNew + "?";
+
+								// var hrefNew = $thisApiParentField.data('api-href')+"?";
+								
 								var fieldLinks = fieldNameInElement.split(',');
 								
 								var indexFieldLink = 0;
@@ -195,7 +222,7 @@ function fillResultToHtml(apiName){
 							}else{
 								$thisApiParentField.text(parent_data[indexParentRecord][fieldNameInElement]);
 							} //end else if
-							console.log("thisApiParentField: "+fieldNameInElement);
+							// console.log("thisApiParentField: "+fieldNameInElement);
 						})// end apiParentFields.each
 						
 						$thisApiParentRecord.attr('data-api-parent',parent_data[indexParentRecord][field_key]);
@@ -213,10 +240,10 @@ function fillResultToHtml(apiName){
 					indexApiParentRecord++;
 				});// end apiParentRecords.each
 				
-				console.log("now working the chilren ***********************");
+				// console.log("now working the chilren ***********************");
 				for(var indexParentRecord=0; indexParentRecord < parent_data.length; indexParentRecord++){
 					var parentId = parent_data[indexParentRecord][field_key];
-					console.log("parentId: "+ parentId);
+					// console.log("parentId: "+ parentId);
 					
 					var $parentElements = $thisApiLoop.find('[data-api-parent="'+parentId+'"]');
 					
@@ -235,10 +262,10 @@ function fillResultToHtml(apiName){
 									return e[field_parent] == parent_data[indexParentRecord][field_key];
 								});
 								
-								console.log("children_data.length: "+children_data.length);
+								// console.log("children_data.length: "+children_data.length);
 								
 								for(var indexChildrenRecord=0; indexChildrenRecord < children_data.length; indexChildrenRecord++){
-									console.log("childrenId: "+children_data[indexChildrenRecord][field_key]);
+									// console.log("childrenId: "+children_data[indexChildrenRecord][field_key]);
 									
 									var $apiChildrenFields = $thisApiChildrenRecord.find('[data-api-field]');
 									$($apiChildrenFields).each(function(){
@@ -247,8 +274,17 @@ function fillResultToHtml(apiName){
 										if($thisApiChildrenField.prop("tagName") == "IMG"){
 											$thisApiChildrenField.attr("src", children_data[indexChildrenRecord][fieldNameInElement]);
 										}
-										else if($thisApiChildrenField.prop("tagName") == "A"){	
-											var hrefNew = $thisApiChildrenField.data('link-url')+"?";
+										else if($thisApiChildrenField.prop("tagName") == "A"){
+											var apiLink = $thisApiChildrenField.data('api-link');
+											var hrefNew = $thisApiChildrenField.data('api-href');
+
+											if(apiLink === "dynamic"){
+												hrefNew = children_data[indexChildrenRecord][hrefNew];
+											}
+											
+											hrefNew = hrefNew + "?";
+											
+											// var hrefNew = $thisApiChildrenField.data('api-href')+"?";
 											var fieldLinks = fieldNameInElement.split(',');
 											
 											var indexFieldLink = 0;
@@ -259,10 +295,13 @@ function fillResultToHtml(apiName){
 											}// end while indexFieldLink
 											hrefNew = hrefNew.substring(0, (hrefNew.length-1) );
 											$thisApiChildrenField.attr("href", hrefNew);
+										
+										
+										
 										}else{
 											$thisApiChildrenField.text(children_data[indexChildrenRecord][fieldNameInElement]);
 										} //end else if
-										console.log("thisApiChildrenField: "+fieldNameInElement);
+										// console.log("thisApiChildrenField: "+fieldNameInElement);
 									})// end apiChildrenFields.each
 									
 									$thisChildrenArray.append($thisApiChildrenRecord.clone().attr('id',apiName+'_'+indexElement+'_'+'_'+indexChildrenRecord));
@@ -413,11 +452,22 @@ $( document ).on( "pagecontainershow", function( event, ui ) {
 	
 	var $pageNow = $('#'+wp.pageId);
 	var apis = $pageNow.data('api-name');
-	var apiNames = apis.split(',');
+	
+	var apiNames = [];
+	if(apis)
+		apiNames = apis.split(',');
 	
 	for (var indexApiName = 0; indexApiName < apiNames.length; indexApiName++) {
 	   var apiName = $.trim(apiNames[indexApiName]);
-	   callApi(apiName);
+	   
+		callApi(apiName);
 	}// end for apiNames
+
+	$pageNow.removeAttr("data-api-name");
+	$pageNow.removeData("api-name");
+	
+	console.log("api-name setelah remove: "+$pageNow.data('api-name'));
+	
+	
 }); // end document on pagecontainershow
 
