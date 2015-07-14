@@ -16,30 +16,6 @@ var dev = {
 		success: 'background-color: #DDDDDD; color: #00CC09'
 	}
 };// end var dev
-
-console.log('common.js called...');
-
-if (Modernizr.localstorage) {
-	console.log("window.localStorage is available");
-	console.log("wp.api: "+wp.api);
-	console.log("wp.ver: "+wp.ver);
-	
-	var pdid = localStorage["pdid"];
-	console.log("pdid: "+pdid);
-	
-	var drid = localStorage["drid"];
-	console.log("drid: "+drid);
-	
-	if(pdid == null || drid == null){
-		console.log("pdid or drid is null, now trying to get pdid from backend");
-		drid = acak(1,100000000000,0);	
-		registerNewDevice(wp.ver,drid);
-	}
-} else {
-	console.log("window.localStorage is NOT available");
-	alert("NOT SUPPORTED");
-	//FIXME seharusnya ngapain gitu, biar gak bisa buka yang selanjutnya, karena ini common js
-}// end if Modernizr.localStorage
 	
 function getParameter(name) {
 	var name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"),
@@ -78,8 +54,6 @@ function callApi(apiName, default_params_value){
 	}// end while setting field parameters
 
 	getData(apiName, parameters, function(data){
-		console.log('getData called: '+apiName);
-		
 		var field_name = api_params[data.apiName]['params_out']['field_name'];
 		api_params[data.apiName]['params_out']['field_data'] = data[field_name];
 		
@@ -95,7 +69,7 @@ function callApi(apiName, default_params_value){
 
 function fillResultToHtml(apiName){
 	
-	//FIXME not all fields are needed
+	//actually not all fields are needed, but still initiated for the sake of simplicity
 	var field_name 		=  api_params[apiName]['params_out']['field_name'];
 	var field_type 		=  api_params[apiName]['params_out']['field_type'];
 	var field_parent 	=  api_params[apiName]['params_out']['field_parent'];
@@ -414,9 +388,13 @@ function getData(apiName, parameters, callback) {
 	request.fail(function(xhr, status, error) {
 		// console.log(xhr, status, error);
 		console.log('%c Error when requesting to "' + apiName + '" ', dev.log.error);
+		// this is very bad. either server not responding or failed security check
+		// FIXME if user hasnt login yet, it still fail. this affects the error-handling. 
+		// FIXME if user hasnt logined yet, must reply with wpCode!!!
 		
-		$('[data-api-name="'+apiName+'"]').remove();
-		// FIXME hilangin aja pake remove
+		//window.location = "error.html";
+		
+		// $('[data-api-name="'+apiName+'"]').remove();
 	})
 }// end getData
 
@@ -440,12 +418,12 @@ function acak(min, max, whole) {
 	return void 0===whole||!1===whole?Math.random()*(max-min+1)+min:!isNaN(parseFloat(whole))&&0<=parseFloat(whole)&&20>=parseFloat(whole)?(Math.random()*(max-min+1)+min).toFixed(whole):Math.floor(Math.random()*(max-min+1))+min;
 };
 
-function registerNewDevice(ver,drid){
+function registerNewDevice(ver, drid, callback){
 	console.log("registerNewDevice called...");
 	var jawaban = false;
 	
 	$.ajax({
-		async: false,
+		// async: false,
 		url: wp.api+"registerNewDevice",
 		data: { 
 			ver: ver,
@@ -465,28 +443,70 @@ function registerNewDevice(ver,drid){
 				localStorage.setItem("pdid",response.pdid);
 				localStorage.setItem("drid",drid);
 				
+				if (typeof(callback) == "function") {
+					callback();
+				}
+				
 			}else{
 				console.log("something not right happened...");
 				console.log("error code: "+response.wpCode);
 				console.log("error message: "+response.wpMessage);
 				
-				// FIXME
-				// harus dibuang ke page awal aja. hati hati async
 				alert("error code: "+response.wpCode+", error message: "+response.wpMessage);
+				// window.location = "error.html";
 			}
 			
 		},
 		error: function(xhr, status, error) {
 			console.log("error in contacting registerNewDevice...");
 			console.log(xhr, status, error);
-			// window.location.href = "error.html";
+			//window.location = "error.html";
 		}
 	});
 }; // end registerNewDevice
 
 
 $( document ).on( "pagecontainershow", function( event, ui ) {
+
+	if(!Modernizr.localstorage){
+		alert("LocalStorage NOT SUPPORTED");
+		//window.location = "error.html";
+	}
+	
+	console.log("window.localStorage is available");
+	console.log("wp.api: "+wp.api);
+	console.log("wp.ver: "+wp.ver);
+	
+	var pdid = localStorage["pdid"];
+	console.log("pdid: "+pdid);
+	
+	var drid = localStorage["drid"];
+	console.log("drid: "+drid);
+	
+	if(pdid == null || drid == null){
+		console.log("pdid or drid is null, now trying to get pdid from backend");
+		drid = acak(1,100000000000,0);	
+		registerNewDevice(wp.ver, drid, function(){
+			parsePage();
+		});
+		console.log("di bawah registerNewDevice");
+	}else{
+		console.log("pdid dan drid ada isinya");
+		parsePage();
+	}
+
+}); // end document on pagecontainershow
+
+function parsePage(){
+	
+	console.log("in parsePage");
+	
 	wp.pageId = $('body').pagecontainer('getActivePage').prop('id'); 
+	
+//	var currentURL = window.location.href;
+//	console.log("currentURL: "+currentURL);
+	
+	console.log("ini show");
 	
 	var $pageNow = $('#'+wp.pageId);
 	var apis = $pageNow.data('api-name');
@@ -507,5 +527,5 @@ $( document ).on( "pagecontainershow", function( event, ui ) {
 		
 	console.log("*********checkkkkkk************");
 	
-}); // end document on pagecontainershow
+}; // end document on parsePage
 
