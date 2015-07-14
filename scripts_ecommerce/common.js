@@ -4,8 +4,8 @@ var wp = {
 	uri_styles: 'styles_ecommerce/',
 	ver: '800-000-1616.95.20150622',
 	bizId: 'paveels',
-	viewSize: -1,
-	viewIndex: -1,
+//	viewSize: 10,
+//	viewIndex: 0,
 	pageId: ''
 };
 
@@ -48,7 +48,7 @@ function getParameter(name) {
 	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function callApi(apiName){	
+function callApi(apiName, default_params_value){	
 	console.log('callApi called...');
 
 	var api_params_in = api_params[apiName]["params_in"];
@@ -65,7 +65,12 @@ function callApi(apiName){
 		var valueFromRequest = getParameter(api_params_in_Name);
 		
 		if(valueFromRequest == "" ){
-			parameters[api_params_in_Name] = wp[api_params_in_Name];
+			if(default_params_value){
+				parameters[api_params_in_Name] = default_params_value[api_params_in_Name]; 
+			}else{
+				parameters[api_params_in_Name] = wp[api_params_in_Name]; // ini harusnya ambil dari mana yah??? karena beda page bisa beda kebutuhan viewIndex
+				
+			}		
 		}else{
 			parameters[api_params_in_Name] = valueFromRequest;
 		}
@@ -116,16 +121,52 @@ function fillResultToHtml(apiName){
 			
 			if(apiLoop == "one"){
 			
+				var $apiFields = $thisApiElement.find('[data-api-field]');
+				
+				$($apiFields).each(function(){
+					var $thisApiField = $(this);
+					var fieldNameInElement = $thisApiField.data('api-field');
+					
+					if($thisApiField.prop("tagName") == "IMG"){
+						$thisApiField.attr("src", field_data[fieldNameInElement]);
+					}
+					else if($thisApiField.prop("tagName") == "A"){
+						var apiLink = $thisApiField.data('api-link');
+						var hrefNew = $thisApiField.data('api-href');
+
+						if(apiLink === "dynamic"){
+							hrefNew = field_data[hrefNew];
+						}
+						
+						hrefNew = hrefNew + "?";
+						
+						// var hrefNew = $thisApiField.data('api-href')+"?";
+						
+						var fieldLinks = fieldNameInElement.split(',');
+						
+						var indexFieldLink = 0;
+						while(indexFieldLink < fieldLinks.length){
+							var fieldLinkName = fieldLinks[indexFieldLink];
+							hrefNew = hrefNew+fieldLinkName+"="+field_data[indexRecord][fieldLinkName]+"&";
+							indexFieldLink++;
+						}// end while indexFieldLink
+						hrefNew = hrefNew.substring(0, (hrefNew.length-1) );
+						$thisApiField.attr("href", hrefNew);
+					}else{
+						if(field_data[fieldNameInElement])
+							$thisApiField.text(field_data[fieldNameInElement]);
+					} //end else if
+				});// end apiField.each
+				
 			};// end apiShow == one
+			
 			
 			if(apiLoop == "list"){
 				var $apiRecords = $thisApiLoop.find('[data-api-record="record"]');
 				var indexApiRecord = 0;
 				
 				$($apiRecords).each(function(){
-					
-					console.log('apiRecord.each');
-					
+										
 					$thisApiRecord = $(this);
 					for (var indexRecord=0; indexRecord < field_data.length; indexRecord++){
 					
@@ -161,7 +202,8 @@ function fillResultToHtml(apiName){
 								hrefNew = hrefNew.substring(0, (hrefNew.length-1) );
 								$thisApiField.attr("href", hrefNew);
 							}else{
-								$thisApiField.text(field_data[indexRecord][fieldNameInElement]);
+								if(field_data[indexRecord][fieldNameInElement])
+									$thisApiField.text(field_data[indexRecord][fieldNameInElement]);
 							} //end else if
 						});// end apiField.each
 						
@@ -188,7 +230,6 @@ function fillResultToHtml(apiName){
 					var $thisApiParentRecordClone = $thisApiParentRecord.clone();
 
 					for (var indexParentRecord=0; indexParentRecord < parent_data.length; indexParentRecord++){
-						// console.log("parent: "+parent_data[indexParentRecord][field_key]);
 						
 						var $apiParentFields = $thisApiParentRecord.find('[data-api-field]');
 						$($apiParentFields).each(function(){
@@ -220,9 +261,10 @@ function fillResultToHtml(apiName){
 								hrefNew = hrefNew.substring(0, (hrefNew.length-1) );
 								$thisApiParentField.attr("href", hrefNew);
 							}else{
-								$thisApiParentField.text(parent_data[indexParentRecord][fieldNameInElement]);
+								if(parent_data[indexParentRecord][fieldNameInElement])
+									$thisApiParentField.text(parent_data[indexParentRecord][fieldNameInElement]);
 							} //end else if
-							// console.log("thisApiParentField: "+fieldNameInElement);
+
 						})// end apiParentFields.each
 						
 						$thisApiParentRecord.attr('data-api-parent',parent_data[indexParentRecord][field_key]);
@@ -240,10 +282,8 @@ function fillResultToHtml(apiName){
 					indexApiParentRecord++;
 				});// end apiParentRecords.each
 				
-				// console.log("now working the chilren ***********************");
 				for(var indexParentRecord=0; indexParentRecord < parent_data.length; indexParentRecord++){
 					var parentId = parent_data[indexParentRecord][field_key];
-					// console.log("parentId: "+ parentId);
 					
 					var $parentElements = $thisApiLoop.find('[data-api-parent="'+parentId+'"]');
 					
@@ -262,10 +302,7 @@ function fillResultToHtml(apiName){
 									return e[field_parent] == parent_data[indexParentRecord][field_key];
 								});
 								
-								// console.log("children_data.length: "+children_data.length);
-								
 								for(var indexChildrenRecord=0; indexChildrenRecord < children_data.length; indexChildrenRecord++){
-									// console.log("childrenId: "+children_data[indexChildrenRecord][field_key]);
 									
 									var $apiChildrenFields = $thisApiChildrenRecord.find('[data-api-field]');
 									$($apiChildrenFields).each(function(){
@@ -299,9 +336,10 @@ function fillResultToHtml(apiName){
 										
 										
 										}else{
-											$thisApiChildrenField.text(children_data[indexChildrenRecord][fieldNameInElement]);
+											if(children_data[indexChildrenRecord][fieldNameInElement])
+												$thisApiChildrenField.text(children_data[indexChildrenRecord][fieldNameInElement]);
 										} //end else if
-										// console.log("thisApiChildrenField: "+fieldNameInElement);
+
 									})// end apiChildrenFields.each
 									
 									$thisChildrenArray.append($thisApiChildrenRecord.clone().attr('id',apiName+'_'+indexElement+'_'+'_'+indexChildrenRecord));
@@ -459,15 +497,15 @@ $( document ).on( "pagecontainershow", function( event, ui ) {
 	
 	for (var indexApiName = 0; indexApiName < apiNames.length; indexApiName++) {
 	   var apiName = $.trim(apiNames[indexApiName]);
+	   var default_params_value = $pageNow.data( apiName.toLowerCase() ) ;
 	   
-		callApi(apiName);
+	   callApi(apiName, default_params_value);
 	}// end for apiNames
 
 	$pageNow.removeAttr("data-api-name");
 	$pageNow.removeData("api-name");
-	
-	console.log("api-name setelah remove: "+$pageNow.data('api-name'));
-	
+		
+	console.log("*********checkkkkkk************");
 	
 }); // end document on pagecontainershow
 
