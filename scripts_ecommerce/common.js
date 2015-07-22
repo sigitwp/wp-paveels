@@ -4,8 +4,6 @@ var wp = {
 	uri_styles: 'styles_ecommerce/',
 	ver: '800-000-1616.95.20150622',
 	bizId: 'paveels',
-//	viewSize: 10,
-//	viewIndex: 0,
 	pageId: ''
 };
 
@@ -44,7 +42,7 @@ function callApi(apiName, default_params_value){
 			if(default_params_value){
 				parameters[api_params_in_Name] = default_params_value[api_params_in_Name]; 
 			}else{
-				parameters[api_params_in_Name] = wp[api_params_in_Name]; // ini harusnya ambil dari mana yah??? karena beda page bisa beda kebutuhan viewIndex
+				parameters[api_params_in_Name] = wp[api_params_in_Name];
 				
 			}		
 		}else{
@@ -392,7 +390,7 @@ function getData(apiName, parameters, callback) {
 		// FIXME if user hasnt login yet, it still fail. this affects the error-handling. 
 		// FIXME if user hasnt logined yet, must reply with wpCode!!!
 		
-		//window.location = "error.html";
+		// window.location = "error.html";
 		
 		// $('[data-api-name="'+apiName+'"]').remove();
 	})
@@ -423,7 +421,6 @@ function registerNewDevice(ver, drid, callback){
 	var jawaban = false;
 	
 	$.ajax({
-		// async: false,
 		url: wp.api+"registerNewDevice",
 		data: { 
 			ver: ver,
