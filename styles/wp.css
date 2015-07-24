@@ -176,7 +176,7 @@ html head + body .ui-body-b.ui-focus,
 body, input, select, textarea, button, .ui-btn {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
-} */
+}
 @font-face {
 	font-family: 'Helvetica Neue';
 	src: url('../fonts/HelveticaNeue/HelveticaNeue-Regular.ttf') format('truetype');
@@ -189,6 +189,10 @@ body, input, select, textarea, button, .ui-btn {
 }
 body, input, select, textarea, button, .ui-btn {
 	font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+	font-size: 14px;
+} */
+body, input, select, textarea, button, .ui-btn {
+	font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
 	font-size: 14px;
 }
 
@@ -434,26 +438,29 @@ body, input, select, textarea, button, .ui-btn {
 	background-color: #EEEEEE;
 }
 @media (min-width: 768px) {
+	.def .ui-content .same-height .cm4 {
+		background-color: #FDD356;
+	}
 	.def .ui-content .same-height [class*="cm"] {
 		display: table-cell;
 	}
 	.def .ui-content .order.odd-even .item:nth-child(odd) .row > [class*="cm"]:first-child {
-		width: 60%;
+		width: 40%;
 	}
 	.def .ui-content .order.odd-even .item:nth-child(odd) .row > [class*="cm"]:last-child {
-		width: 40%;
-	}
-	.def .ui-content .order.odd-even .item:nth-child(even) .row > [class*="cm"]:first-child {
-		width: 40%;
-	}
-	.def .ui-content .order.odd-even .item:nth-child(even) .row > [class*="cm"]:last-child {
 		width: 60%;
 	}
+	.def .ui-content .order.odd-even .item:nth-child(even) .row > [class*="cm"]:first-child {
+		width: 60%;
+	}
+	.def .ui-content .order.odd-even .item:nth-child(even) .row > [class*="cm"]:last-child {
+		width: 40%;
+	}
 }
-
+/*
 .def .ui-content .order.ordered .item img {
 	background-color: #EEEEEE;
-}
+} */
 .def .ui-content .order.ordered.mini .item {
 	float: left;
 	width: 50%;
