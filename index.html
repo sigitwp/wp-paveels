@@ -16,7 +16,7 @@
 </head>
 <body>
 <!--  , ecmcGetBizTopProductList ecmcGetBizLinkUrlList -->
-	<div data-role="page" id="page_index" class="def" data-api-name="ecmcGetBizTopProductList, ecmcGetBizLinkUrlList, ecmcGetBizBrandList, ecmcGetBizHubList">
+	<div data-role="page" id="page_index" class="def" data-api-name="ecmcGetBizCatalogList, ecmcGetBizLinkUrlList, ecmcGetBizBrandList, ecmcGetBizHubList, ecmcGetBizArticleList">
 		<div data-role="panel" id="panel-menu" class="panel-menu">
 			<ul data-role="listview" class="ui-alt-icon ui-nodisc-icon">
 				<li><a href="index.html">Home</a></li>
@@ -79,7 +79,7 @@
 		<!-- FIXME di sini seharusnya hub/notification, sementara diremove biar gak pusing -->
 
 			<div class="container">
-				<div class="section" data-api-name="ecmcGetBizHubList">
+				<div class="section" data-api-name="ecmcGetBizArticleList">
 					<ul class="order odd-even" data-api-loop="list">
 						<li class="item" data-api-record="record">
 							<div class="ui-view">
@@ -105,8 +105,7 @@
 						</li>
 					</ul>
 				</div>
-
-				<div class="section" data-api-name="ecmcGetBizTopProductList">
+				<div class="section" data-api-name="ecmcGetBizCatalogList">
 					<h2 class="yellow-block">Top Products</h2>
 					<ul class="order ordered" data-api-loop="list">
 						<li class="item" data-api-record="record">
