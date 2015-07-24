@@ -1,11 +1,35 @@
 var api_params = 
 {
-	ecmcGetBizBrandDetail:{
-		params_in: ['bizId', 'brandId'],
+ 	ecmcGetBizHubList: {
+ 		params_in: ['bizId', 'viewSize', 'viewIndex'],
 		params_out: {
-			field_name:"BizBrand",
-			field_type: "Entity",
-			field_data: {}
+			field_name:"entityList",
+			field_type: "EntityList",
+			field_data:{}
+		}
+ 	},
+ 	ecmcGetBizArticleList: {
+		params_in: ['bizId','viewSize','viewIndex'],
+		params_out: {
+			field_name:"entityList",
+			field_type: "EntityList",
+			field_data:{}
+		}
+	},
+	ecmcGetBizCatalogList: {
+ 		params_in: ['bizId','bizCatalogId','viewSize','viewIndex'],
+		params_out: {
+			field_name:"entityList",
+			field_type: "EntityList",
+			field_data:{}
+		}
+	},
+ 	ecmcGetBizLinkUrlList: {
+ 		params_in: ['bizId','viewSize','viewIndex'],
+		params_out: {
+			field_name:"entityList",
+			field_type: "EntityList",
+			field_data:{}
 		}
 	},
 	ecmcGetBizBrandList:{
@@ -16,7 +40,24 @@ var api_params =
 			field_data:{}
 		}
 	},
-
+	ecmcGetBizBrandDetail:{
+		params_in: ['bizId', 'brandId'],
+		params_out: {
+			field_name:"BizBrand",
+			field_type: "Entity",
+			field_data: {}
+		}
+	},
+	ecmcGetBizCategoryProductList: {
+ 		params_in: ['bizId','viewSize','viewIndex'],
+		params_out: {
+			field_name:"entityList",
+			field_type: "EntityListArray",
+			field_key: "categoryId",
+			field_parent: "parentCategoryId",
+			field_data:{}
+		}
+	},
 	ecmcGetBizCategoryProductParentList: {
  		params_in: ['bizId','viewSize','viewIndex'],
 		params_out: {
@@ -25,23 +66,11 @@ var api_params =
 			field_data:{}
 		}
 	},
- 	
 	ecmcGetBizCategoryProductChildrenList: {
  		params_in: ['bizId','parentCategoryId', 'viewSize','viewIndex'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
-			field_data:{}
-		}
-	},
- 	
-	ecmcGetBizCategoryProductList: {
- 		params_in: ['bizId','viewSize','viewIndex'],
-		params_out: {
-			field_name:"entityList",
-			field_type: "EntityListArray",
-			field_key: "categoryId",
-			field_parent: "parentCategoryId",
 			field_data:{}
 		}
 	},
@@ -53,36 +82,53 @@ var api_params =
 			field_data:{}
 		}
  	},
- 	ecmcGetBizHubList: {
- 		params_in: ['bizId', 'viewSize', 'viewIndex'],
+ 	ecmcGetBizProductDetail: {
+ 		params_in: ['bizProductId'],
+		params_out: {
+			field_name:"BizProduct",
+			field_type: "EntityList",
+			field_data:{}
+		}
+ 	},
+ 	ecmcGetBizProductRelatedList: {
+ 		params_in: ['bizId','bizProductId','viewSize','viewIndex'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
  	},
-	ecmcGetBizArticleList: {
-		params_in: ['bizId','viewSize','viewIndex'],
+ 	ecmcGetShoppingCart: {
+ 		params_in: ['bizId'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
-	},
-	ecmcGetBizTopProductList: {
- 		params_in: ['bizId','viewSize','viewIndex'],
+ 	},
+ 	ecmcGetWishList: {
+ 		params_in: ['bizId'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
-	},
-	ecmcGetBizLinkUrlList: {
- 		params_in: ['bizId','viewSize','viewIndex'],
+ 	},
+ 	ecmcPutItemToShoppingCart: {
+ 		params_in: ['bizId','bizProductId'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
-	}
+ 	},
+ 	ecmcCheckOutShoppingCart: {
+ 		params_in: ['bizId','bizProductId'],
+		params_out: {
+			field_name:"entityList",
+			field_type: "EntityList",
+			field_data:{}
+		}
+ 	}
+
 };
