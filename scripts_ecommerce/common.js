@@ -515,7 +515,7 @@ function parsePage(){
 	for (var indexApiName = 0; indexApiName < apiNames.length; indexApiName++) {
 	   var apiName = $.trim(apiNames[indexApiName]);
 	   var default_params_value = $pageNow.data( apiName.toLowerCase() ) ;
-	   
+	   console.log("apiName: "+apiName);
 	   callApi(apiName, default_params_value);
 	}// end for apiNames
 
