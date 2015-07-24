@@ -1,39 +1,39 @@
-var api_params = 
+var api_params =
 {
- 	ecmcGetBizHubList: {
- 		params_in: ['bizId', 'viewSize', 'viewIndex'],
-		params_out: {
-			field_name:"entityList",
-			field_type: "EntityList",
-			field_data:{}
-		}
- 	},
- 	ecmcGetBizArticleList: {
+	ecmcGetBizArticleList: {
 		params_in: ['bizId','viewSize','viewIndex'],
 		params_out: {
-			field_name:"entityList",
+			field_name: "entityList",
 			field_type: "EntityList",
-			field_data:{}
+			field_data: {}
 		}
 	},
-	ecmcGetBizCatalogList: {
- 		params_in: ['bizId','bizCatalogId','viewSize','viewIndex'],
+	ecmcGetBizProdCatalogItemList: {
+		params_in: ['bizId','bizCatalogId','viewSize','viewIndex'],
 		params_out: {
-			field_name:"entityList",
+			field_name: "entityList",
 			field_type: "EntityList",
-			field_data:{}
-		}
-	},
- 	ecmcGetBizLinkUrlList: {
- 		params_in: ['bizId','viewSize','viewIndex'],
-		params_out: {
-			field_name:"entityList",
-			field_type: "EntityList",
-			field_data:{}
+			field_data: {}
 		}
 	},
 	ecmcGetBizBrandList:{
 		params_in: ['bizId','viewSize','viewIndex'],
+		params_out: {
+			field_name:"entityList",
+			field_type: "EntityList",
+			field_data:{}
+		}
+	},
+	ecmcGetBizLinkUrlList: {
+		params_in: ['bizId','viewSize','viewIndex'],
+		params_out: {
+			field_name:"entityList",
+			field_type: "EntityList",
+			field_data:{}
+		}
+	},
+	ecmcGetBizHubList: {
+		params_in: ['bizId', 'viewSize', 'viewIndex'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
@@ -49,7 +49,7 @@ var api_params =
 		}
 	},
 	ecmcGetBizCategoryProductList: {
- 		params_in: ['bizId','viewSize','viewIndex'],
+		params_in: ['bizId','viewSize','viewIndex'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityListArray",
@@ -59,7 +59,7 @@ var api_params =
 		}
 	},
 	ecmcGetBizCategoryProductParentList: {
- 		params_in: ['bizId','viewSize','viewIndex'],
+		params_in: ['bizId','viewSize','viewIndex'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
@@ -67,68 +67,68 @@ var api_params =
 		}
 	},
 	ecmcGetBizCategoryProductChildrenList: {
- 		params_in: ['bizId','parentCategoryId', 'viewSize','viewIndex'],
+		params_in: ['bizId','parentCategoryId', 'viewSize','viewIndex'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
 	},
- 	ecmcGetBizProductList: {
- 		params_in: ['bizId','viewSize','viewIndex','brandId','productId','productSku','productName'],
+	ecmcGetBizProductList: {
+		params_in: ['bizId','viewSize','viewIndex','brandId','productId','productSku','productName'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
- 	},
- 	ecmcGetBizProductDetail: {
- 		params_in: ['bizProductId'],
+	},
+	ecmcGetBizProductDetail: {
+		params_in: ['bizProductId'],
 		params_out: {
 			field_name:"BizProduct",
 			field_type: "EntityList",
 			field_data:{}
 		}
- 	},
- 	ecmcGetBizProductRelatedList: {
- 		params_in: ['bizId','bizProductId','viewSize','viewIndex'],
+	},
+	ecmcGetBizProductRelatedList: {
+		params_in: ['bizId','bizProductId','viewSize','viewIndex'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
- 	},
- 	ecmcGetShoppingCart: {
- 		params_in: ['bizId'],
+	},
+	ecmcGetShoppingCart: {
+		params_in: ['bizId'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
- 	},
- 	ecmcGetWishList: {
- 		params_in: ['bizId'],
+	},
+	ecmcGetWishList: {
+		params_in: ['bizId'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
- 	},
- 	ecmcPutItemToShoppingCart: {
- 		params_in: ['bizId','bizProductId'],
+	},
+	ecmcPutItemToShoppingCart: {
+		params_in: ['bizId','bizProductId'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
- 	},
- 	ecmcCheckOutShoppingCart: {
- 		params_in: ['bizId','bizProductId'],
+	},
+	ecmcCheckOutShoppingCart: {
+		params_in: ['bizId','bizProductId'],
 		params_out: {
 			field_name:"entityList",
 			field_type: "EntityList",
 			field_data:{}
 		}
- 	}
+	}
 
 };
